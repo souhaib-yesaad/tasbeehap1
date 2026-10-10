@@ -25,519 +25,156 @@
   --shadow:0 4px 15px rgba(0,0,0,.07)
 }
 *{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif}
-body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
-.phone{width:100%;max-width:400px;height:800px;background:var(--bg);border-radius:40px;border:8px solid #2c3e50;box-shadow:0 10px 30px rgba(0,0,0,.15);overflow:hidden;position:relative}
-.screen{position:absolute;inset:0;overflow-y:auto;padding:20px 20px 95px}.screen::-webkit-scrollbar{width:0}
+body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:10px}
+.phone{width:100%;max-width:420px;height:95vh;max-height:850px;background:var(--bg);border-radius:36px;border:6px solid #2c3e50;box-shadow:0 10px 30px rgba(0,0,0,.15);overflow:hidden;position:relative}
+
+@media(max-width:480px){
+  body{padding:0}
+  .phone{height:100vh;max-height:100%;border-radius:0;border:none}
+}
+
+.screen{position:absolute;inset:0;overflow-y:auto;padding:20px 20px 95px}
+.screen::-webkit-scrollbar{width:0}
 .hidden{display:none!important}
 
-/* ================= الصفحة الرئيسية الأصلية ================= */
+/* ================= الصفحة الرئيسية ================= */
 .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
 .user-info{display:flex;align-items:center;gap:10px}
 .avatar{width:40px;height:40px;background:#dcdde1;border-radius:50%;display:grid;place-items:center;color:var(--primary);font-weight:bold}
 .greeting h4{font-size:14px;color:var(--muted)}.greeting h3{font-size:16px}
 .streak{background:#fff;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:bold;box-shadow:var(--shadow);color:#e67e22}
-.prayer-card{background:linear-gradient(135deg,#e1ecf4,#c8dbe8);border-radius:20px;padding:20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;box-shadow:var(--shadow)}
-.next-label{font-size:12px;color:var(--muted)}.prayer-time{font-size:24px;font-weight:bold;color:#1b4965}.prayer-name{font-size:14px;font-weight:bold}
-.location{font-size:11px;color:#4a5568;background:rgba(255,255,255,.6);padding:3px 8px;border-radius:10px;display:inline-block;margin-top:5px}
-.timer-circle{width:70px;height:70px;border-radius:50%;background:conic-gradient(#1b4965 75%,#fff 0);display:grid;place-items:center}
-.timer-inner{width:58px;height:58px;background:#ebf3f9;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:10px;font-weight:bold;color:#1b4965}
-.grid-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:20px}
-.menu-item{background:#fff;border:0;border-radius:20px;padding:15px 10px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
-.menu-icon{width:50px;height:50px;background:#f7fafc;border-radius:50%;display:grid;place-items:center;font-size:20px}
-.menu-item span{font-size:12px;font-weight:600;color:var(--text)}
-.banner-card{background:#fff;border-radius:15px;padding:15px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center}
-.banner-text h4{font-size:13px;color:var(--primary)}.banner-text p{font-size:11px;color:var(--muted);margin-top:3px}
-.banner-btn,.primary-btn{background:var(--primary);color:white;border:0;border-radius:15px;padding:8px 14px;font-size:12px;font-weight:bold;cursor:pointer}
-.bottom-nav{position:absolute;bottom:0;left:0;width:100%;height:75px;background:var(--primary);display:flex;justify-content:space-around;align-items:center;border-radius:25px 25px 0 0;box-shadow:0 -5px 15px rgba(0,0,0,.1);z-index:999;}
-.nav-item{background:none;border:0;color:rgba(255,255,255,.75);font-size:20px;cursor:pointer}
-.nav-center-btn{width:55px;height:55px;background:#fff!important;border-radius:50%;color:var(--primary)!important;margin-top:-20px;border:4px solid var(--bg)!important}
 
-/* ================= صفحات تحدي التسبيح داخل نفس التطبيق ================= */
-.page-head{display:flex;align-items:center;justify-content:space-between;height:55px;margin-bottom:12px}
-.page-head h2{color:var(--primary);font-size:25px;text-align:center;flex:1}
-.back-btn{width:42px;border:0;background:none;color:var(--primary);font-size:38px;line-height:1;cursor:pointer}
-
-.setup-card,.challenge-card,.counter-status{
-  background:linear-gradient(135deg,#edf5fc,#e5f0f8);
-  border:1px solid #c3d6e2;border-radius:22px;padding:18px;
-  box-shadow:var(--shadow);margin-bottom:20px
-}
-.setup-card h3{color:var(--primary-dark);font-size:17px;margin-bottom:15px}
-.field{margin-bottom:13px}.field label{display:block;font-size:12px;font-weight:700;color:#526773;margin-bottom:7px}
-.field input,.field select{width:100%;height:46px;border:1px solid #b9cbd7;border-radius:13px;background:white;padding:0 12px;font-size:15px;color:var(--text);outline:none}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.primary-btn{width:100%;height:48px;font-size:14px}
-
-.challenge-title{font-size:25px;color:var(--primary);font-weight:800;text-align:right}
-.challenge-days-line{font-size:15px;color:var(--primary-dark);font-weight:700;text-align:right;margin-top:7px}
-.daily-label{font-size:16px;color:#334955;text-align:right;margin:20px 0 12px}
-.challenge-meta{display:flex;justify-content:space-between;color:var(--primary);font-size:21px;font-weight:800}
-.progress{height:10px;background:#ddd;border-radius:10px;overflow:hidden;margin-top:12px}
-.progress i{display:block;height:100%;background:var(--primary);border-radius:10px}
-.days-title{text-align:center;color:var(--primary);font-size:19px;font-weight:700;margin:18px 0 12px}
-.days-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.day-card{min-height:150px;border-radius:22px;border:1.5px solid #a7c4d6;background:#edf2f6;padding:13px 8px;text-align:center;box-shadow:0 2px 8px rgba(43,113,155,.10);cursor:pointer}
-.day-card.active{background:var(--primary);border-color:var(--primary);color:#fff}
-.day-card.done{background:#e8f4ec;border-color:#8ebda0;color:#286b47}
-.day-num{font-family:serif;font-size:23px;font-weight:700;color:#83adc3}.active .day-num,.done .day-num{color:inherit}
-.day-count{font-size:17px;margin-top:13px}
-.day-progress{height:9px;background:#fff;border-radius:10px;margin-top:14px;overflow:hidden}
-.day-progress i{display:block;height:100%;background:#fff}.done .day-progress i{background:#4d9b70}
-.lock{font-size:24px;opacity:.55;margin-top:22px}
-.reset-btn{display:block;margin:16px auto 0;background:none;border:0;color:#8b3c3c;font-size:12px;cursor:pointer}
-
-/* ================= شاشة المسبحة ================= */
-.counter-status .challenge-title{font-size:24px}
-.counter-status .challenge-days-line{font-size:15px}
-.counter-daily{font-size:16px;color:#334955;margin:20px 0 12px}
-.counter-meta{display:flex;justify-content:space-between;align-items:center;color:var(--primary);font-size:21px;font-weight:800}
-.counter-meta small{font-size:12px;color:#657783;font-weight:500}
-.counter-progress{height:10px;background:#ddd;border-radius:10px;overflow:hidden;margin-top:12px}
-.counter-progress i{display:block;height:100%;background:var(--primary)}
-.dhikr-text{text-align:center;color:#050505;font-size:29px;font-weight:800;margin:42px 0 25px}
-.tasbeeh-button{display:flex;justify-content:center;align-items:center;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:transform 0.1s ease}
-.tasbeeh-button:active{transform:scale(0.95)}
-.tasbeeh-ring{width:290px;height:290px;border-radius:50%;padding:18px;background:radial-gradient(circle at 30% 30%, #e0a96d 0%, #a86e32 40%, #583311 100%);box-shadow:0 15px 35px rgba(0,0,0,0.3), inset 0 4px 10px rgba(255,255,255,0.4), inset 0 -6px 15px rgba(0,0,0,0.6);position:relative}
-.tasbeeh-ring:before{content:"";position:absolute;inset:8px;border-radius:50%;border:2px dashed rgba(255,215,0,0.5);pointer-events:none}
-.ring-inner{position:relative;width:100%;height:100%;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle at 50% 30%, #1b263b 0%, #0d1b2a 100%);box-shadow:inset 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(224,169,109,0.3);border:3px solid #e0a96d}
-.counter-number{font-size:68px;color:#ffffff;font-weight:900;text-shadow:0 0 20px rgba(224,169,109,0.8), 0 4px 10px rgba(0,0,0,0.5);font-family:'Segoe UI',sans-serif}
-.counter-label-btn{font-size:14px;color:#e0a96d;font-weight:bold;margin-top:-5px;letter-spacing:1px;background:rgba(224,169,109,0.15);padding:4px 14px;border-radius:20px;border:1px solid rgba(224,169,109,0.4)}
-.counter-hint{text-align:center;color:#7b8991;font-size:12px;margin-top:16px}
-.complete-msg{text-align:center;color:#2f7b51;font-weight:700;margin-top:15px;font-size:13px;display:none}
-
-/* ================= الإنجازات ================= */
-.achievement-crown{width:42px;text-align:center;color:#e5a900;font-size:35px;line-height:1;order:0}
-.levels-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 2px 20px}
-.level-card{height:150px;border-radius:19px;overflow:hidden;background:#c9c9c9;box-shadow:0 3px 10px rgba(0,0,0,.12);cursor:pointer;position:relative;text-align:center}
-.level-card.unlocked{background:#2f739e;color:#fff}.level-card.locked{background:#c9c9c9;color:#fff}
-.level-stars{font-size:25px;letter-spacing:2px;color:#f1b900;margin-top:10px;text-align:center}
-.level-card .level-stars{margin-top:8px}
-.level-number{font-size:56px;line-height:1;font-weight:900;color:#fff;margin-top:13px}
-.level-footer{position:absolute;bottom:0;left:0;right:0;height:49px;background:rgba(0,0,0,.13);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800}
-.level-card.locked .level-footer{color:#fff}
-.level-badge{position:absolute;right:9px;bottom:7px;font-size:24px;opacity:.8}
-.level-small-progress{position:absolute;top:8px;left:8px;font-size:10px;color:#fff;font-weight:700}
-
-.detail-progress-circle{position:absolute;top:18px;left:18px;width:66px;height:66px;border-radius:50%;border:5px solid #e9d9d3;border-right-color:#2c739d;display:grid;place-items:center;color:#2c739d;font-size:12px;font-weight:800}.level-detail-card{background:#cfdae5;border-radius:20px;padding:20px 24px;box-shadow:0 5px 18px rgba(0,0,0,.12);min-height:620px;position:relative}
-.level-detail-card>.level-stars{font-size:65px;letter-spacing:5px;line-height:1.05;color:#f3c21a;text-shadow:0 2px 3px rgba(0,0,0,.12);margin-bottom:5px}
-.level-circle{font-size:82px;font-weight:900;color:#27729f;text-align:center;margin:5px 0 25px}
-.detail-row{display:flex;justify-content:space-between;align-items:center;color:#286f99;font-size:17px;margin:17px 3px 7px}
-.detail-row span{font-size:19px}
-.detail-row label{font-size:17px}
-.detail-bar{height:18px;border-radius:12px;background:#fff;overflow:hidden}
-.detail-bar i{display:block;height:100%;width:0;background:#2c739d;border-radius:12px}
-.achievement-history{margin-top:22px;color:#527080;font-size:12px;text-align:center}
-
-/* ================= الأدعية والأذكار ================= */
-.dhikr-categories{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-.dhikr-category{border:0;background:#fff;border-radius:18px;padding:16px 10px;box-shadow:var(--shadow);text-align:center;cursor:pointer;color:var(--text)}
-.dhikr-category .cat-icon{font-size:27px;margin-bottom:7px}.dhikr-category b{display:block;font-size:14px}.dhikr-category small{display:block;color:#7f8c8d;margin-top:4px;font-size:10px}
-.dhikr-list{display:grid;gap:10px;margin-top:14px}
-.dhikr-item{background:#fff;border:1px solid #e1e8ee;border-radius:18px;padding:15px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.04)}
-.dhikr-item h4{color:#2f7198;margin-bottom:6px;font-size:14px}.dhikr-item p{font-size:12px;line-height:1.8;color:#334155;margin:0}.dhikr-item .repeat{display:inline-block;margin-top:8px;background:#eaf3f8;color:#2f7198;padding:4px 9px;border-radius:10px;font-size:10px}
-.dhikr-player{background:#fff;border-radius:24px;padding:18px;box-shadow:var(--shadow);margin-top:10px;text-align:center}
-.player-category{font-size:11px;color:#7f8c8d}.player-title{font-size:18px;font-weight:800;color:#2f7198;margin:5px 0 12px}.dhikr-arabic{font-size:22px;line-height:2.15;color:#111827;margin:15px 3px;font-family:Tahoma,'Amiri',serif}
-.source-note{font-size:10px;color:#7f8c8d;line-height:1.6;border-top:1px solid #edf1f4;padding-top:10px;text-align:right}.repeat-box{display:flex;justify-content:space-between;align-items:center;background:#eef5f9;border-radius:14px;padding:10px 13px;margin:12px 0;color:#2f7198}.repeat-box strong{font-size:17px}.repeat-box span{font-size:11px}
-.dhikr-tap{width:185px;height:185px;border-radius:50%;border:10px solid #dceaf2;background:radial-gradient(circle,#fff 52%,#edf6fa 100%);margin:16px auto;display:grid;place-items:center;color:#2f7198;box-shadow:0 8px 25px rgba(47,113,152,.18);cursor:pointer;user-select:none}.dhikr-tap:active{transform:scale(.97)}.tap-number{font-size:43px;font-weight:800}.tap-label{font-size:11px;margin-top:-3px}
-.dhikr-next{width:100%;border:0;border-radius:14px;padding:12px;background:#2f7198;color:#fff;font-weight:700}.dhikr-secondary{width:100%;border:1px solid #cbdde8;border-radius:14px;padding:10px;background:#fff;color:#2f7198;margin-top:8px}
-.done-dua{background:#eef7f0;border-radius:16px;padding:20px;text-align:center;color:#276749;line-height:1.9;margin-top:15px}.done-dua h3{margin-bottom:6px}
-@media(max-width:360px){.dhikr-categories{grid-template-columns:1fr}.dhikr-arabic{font-size:19px}}
-
-/* ================= أدوات الأيقونات الأخرى ================= */
-.tool-card,.settings-card{background:#fff;border-radius:22px;padding:18px;box-shadow:var(--shadow);border:1px solid #d5e1e8}.tool-label{font-size:13px;font-weight:700;color:#526773;margin-bottom:8px}.tool-select,.tool-input{width:100%;height:46px;border:1px solid #c1d2dc;border-radius:13px;padding:0 12px;background:#fff;color:var(--text);font-size:14px}.quick-number{text-align:center;font-size:70px;font-weight:800;color:var(--primary);margin:20px 0}.big-action{width:100%;height:55px;border:0;border-radius:17px;background:var(--primary);color:#fff;font-size:16px;font-weight:800}.secondary-action{width:100%;height:44px;border:1px solid #bfd1dc;border-radius:13px;background:#fff;color:var(--primary);font-weight:700;margin-top:10px}.digital-card{text-align:center}.digital-total-label,.tool-note{font-size:12px;color:#71828c}.digital-bead{width:220px;height:220px;border-radius:50%;border:5px solid #e0a96d;background:radial-gradient(circle at 30% 30%, #2b719b 0%, #1b4965 60%, #0d2535 100%);color:#fff;box-shadow:0 12px 30px rgba(0,0,0,0.3), inset 0 5px 12px rgba(255,255,255,0.4), inset 0 -8px 15px rgba(0,0,0,0.6);font-size:55px;font-weight:900;cursor:pointer;transition:transform 0.1s ease;display:flex;flex-direction:column;justify-content:center;align-items:center;margin:20px auto;text-shadow:0 0 15px rgba(255,255,255,0.6)}.digital-bead:active{transform:scale(0.94)}.digital-bead small{display:block;font-size:13px;color:#e0a96d;margin-top:2px;font-weight:bold}.digital-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.prayer-list{display:grid;gap:9px;margin-top:15px}.prayer-row{display:flex;justify-content:space-between;align-items:center;padding:13px;border-radius:14px;background:#eef5f9}.prayer-row b{color:var(--primary)}.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.feature-card{min-height:125px;border:0;border-radius:18px;background:#fff;box-shadow:var(--shadow);color:var(--primary);font-size:27px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.feature-card b{font-size:14px}.feature-card small{font-size:10px;color:#71828c}.quran-progress{display:flex;justify-content:space-between;color:var(--primary);font-size:13px;font-weight:700;margin-bottom:8px}.surah-list{display:grid;gap:8px;margin-top:12px}.surah-row{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:13px;background:#f1f6f9;border:0;text-align:right}.surah-row small{color:#71828c}.settings-card{display:grid;gap:4px}.setting-row{display:flex;justify-content:space-between;align-items:center;padding:15px 4px;border-bottom:1px solid #edf1f3;font-size:13px}.setting-row input{width:20px;height:20px}.dark-mode{--bg:#17212b;--card:#24313c;--text:#eef5f8;--muted:#aab9c2}.dark-mode .screen,.dark-mode body{color:var(--text)}.dark-mode .tool-card,.dark-mode .settings-card,.dark-mode .menu-item,.dark-mode .feature-card{background:#24313c}.dark-mode .tool-input,.dark-mode .tool-select,.dark-mode .secondary-action{background:#1b2730;color:#eef5f8;border-color:#455b68}.dark-mode .prayer-row,.dark-mode .surah-row{background:#1e2d37}
-
-/* ================= مواقيت الصلاة الحقيقية ================= */
-.live-clock-card{background:linear-gradient(135deg,#e1ecf4,#c8dbe8);border-radius:22px;padding:22px;text-align:center;box-shadow:var(--shadow);margin-bottom:14px}
-.live-clock-label{font-size:12px;color:#667985;margin-bottom:5px}
-#liveClock{font-size:42px;font-weight:900;letter-spacing:1px;color:#1b4965;direction:ltr}
-#liveDate{font-size:12px;color:#526975;margin-top:5px}
-.prayer-location-card{background:#fff;border-radius:18px;padding:15px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);margin-bottom:14px}
-.prayer-location-card strong{font-size:12px;color:#7f8c8d}
-#prayerLocationText{font-size:17px;font-weight:800;color:#2c3e50;margin-top:3px}
-.location-btn{border:0;background:#3b7ea1;color:#fff;border-radius:14px;padding:8px 14px;font-weight:700}
-.prayer-list{display:flex;flex-direction:column;gap:9px}
-.prayer-row{background:#fff;border-radius:17px;padding:15px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
-.prayer-row.next{background:#e1ecf4;border:2px solid #3b7ea1}
-.prayer-row .name{font-weight:800;color:#2c3e50}
-.prayer-row .time{font-size:20px;font-weight:900;color:#1b4965;direction:ltr}
-.prayer-row .next-tag{font-size:10px;color:#fff;background:#3b7ea1;border-radius:10px;padding:3px 7px;margin-right:7px}
-.prayer-loading{text-align:center;background:#fff;padding:25px;border-radius:18px;color:#7f8c8d}
-.prayer-error{text-align:center;background:#fff;padding:20px;border-radius:18px;color:#b23b3b}
-.prayer-note{font-size:10px;line-height:1.7;color:#71808a;text-align:center;margin:12px 8px}
-
-/* ================= أشكال وأيقونات ثلاثية الأبعاد احترافية ================= */
-.grid-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
-.menu-item {
-  background: linear-gradient(145deg, #ffffff, #f0f4f8);
-  border: 1px solid #dbe5ed;
-  border-radius: 22px;
-  padding: 16px 8px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06), inset 0 2px 3px rgba(255,255,255,0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.menu-item:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(59,126,161,0.15); }
-.menu-item:active { transform: scale(0.95); }
-
-.menu-icon-3d {
-  width: 58px;
-  height: 58px;
-  border-radius: 20px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #eaf3f8 0%, #d4e5f0 100%);
-  box-shadow: 0 6px 14px rgba(44,62,80,0.12), inset 0 3px 6px rgba(255,255,255,0.9), inset 0 -3px 6px rgba(0,0,0,0.05);
-  border: 1px solid rgba(255,255,255,0.8);
-  position: relative;
-}
-.menu-icon-3d svg { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
-
-/* ================= تحسين جمالية الأزرار وعداد التسبيح ================= */
-.grid-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+.grid-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
 .menu-item {
   background: linear-gradient(145deg, #ffffff, #f0f4f8) !important;
   border: 1px solid #dce6ed !important;
-  border-radius: 22px !important;
-  padding: 16px 8px !important;
+  border-radius: 20px !important;
+  padding: 14px 6px !important;
   text-align: center !important;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06), inset 0 2px 3px rgba(255,255,255,0.9) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   cursor: pointer !important;
-  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transition: transform 0.15s ease !important;
 }
-.menu-item:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 12px 25px rgba(59, 126, 161, 0.18) !important;
-  border-color: #3b7ea1 !important;
-}
-.menu-item:active {
-  transform: scale(0.94) !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
-}
+.menu-item:active { transform: scale(0.93) !important; }
 .menu-item span { font-size: 12px !important; font-weight: 700 !important; color: #2c3e50 !important; }
 
-/* تحسين زر المسبحة وحلقة التسبيح */
-.tasbeeh-button {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  cursor: pointer !important;
-  user-select: none !important;
-  -webkit-tap-highlight-color: transparent !important;
-  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  margin: 15px auto !important;
-}
-.tasbeeh-button:active {
-  transform: scale(0.92) !important;
-}
-.tasbeeh-ring {
-  width: 290px !important;
-  height: 290px !important;
-  border-radius: 50% !important;
-  padding: 18px !important;
-  background: radial-gradient(circle at 30% 30%, #e0a96d 0%, #a86e32 45%, #583311 100%) !important;
-  box-shadow: 0 16px 35px rgba(0,0,0,0.25), 0 0 20px rgba(224,169,109,0.3), inset 0 4px 10px rgba(255,255,255,0.5), inset 0 -6px 15px rgba(0,0,0,0.6) !important;
-  position: relative !important;
-  transition: box-shadow 0.15s ease !important;
-}
-.tasbeeh-button:active .tasbeeh-ring {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 2px 6px rgba(255,255,255,0.3), inset 0 -3px 8px rgba(0,0,0,0.8) !important;
-}
-.tasbeeh-ring:before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 8px !important;
-  border-radius: 50% !important;
-  border: 2px dashed rgba(255, 215, 0, 0.5) !important;
-  pointer-events: none !important;
-}
-.ring-inner {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  background: radial-gradient(circle at 50% 30%, #1b263b 0%, #0d1b2a 100%) !important;
-  box-shadow: inset 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(224,169,109,0.25) !important;
-  border: 3px solid #e0a96d !important;
-}
-.counter-number {
-  font-size: 68px !important;
-  color: #ffffff !important;
-  font-weight: 900 !important;
-  text-shadow: 0 0 20px rgba(224,169,109,0.8), 0 4px 10px rgba(0,0,0,0.5) !important;
-  font-family: 'Segoe UI', sans-serif !important;
-}
-.counter-label-btn {
-  font-size: 13px !important;
-  color: #e0a96d !important;
-  font-weight: bold !important;
-  margin-top: -2px !important;
-  letter-spacing: 1px !important;
-  background: rgba(224,169,109,0.15) !important;
-  padding: 4px 14px !important;
-  border-radius: 20px !important;
-  border: 1px solid rgba(224,169,109,0.4) !important;
+.menu-icon-3d {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #eaf3f8 0%, #d4e5f0 100%);
+  box-shadow: 0 4px 10px rgba(44,62,80,0.1);
+  border: 1px solid rgba(255,255,255,0.8);
 }
 
-/* ================= واجهة العداد الإلكتروني الجذابة ================= */
-.electronic-counter-card {
-  background: linear-gradient(145deg, #ffffff, #f0f5f9);
-  border-radius: 28px;
-  padding: 20px;
-  border: 1px solid #d4e2ed;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-.electronic-screen {
-  background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 100%);
-  border-radius: 22px;
-  padding: 18px;
-  color: #fff;
-  border: 2px solid #38bdf8;
-  box-shadow: inset 0 6px 18px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.counter-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.dhikr-tag-badge {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 700;
-  max-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.session-label {
-  font-size: 11px;
-  color: #94a3b8;
-}
-.digital-lcd-display {
-  text-align: center;
-  padding: 10px 0;
-}
-.lcd-number {
-  font-size: 64px;
-  font-weight: 900;
-  color: #38bdf8;
-  font-family: 'Courier New', Courier, monospace, sans-serif;
-  letter-spacing: 2px;
-  text-shadow: 0 0 20px rgba(56, 189, 248, 0.8), 0 0 40px rgba(56, 189, 248, 0.3);
-}
-.digital-footer-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #cbd5e1;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
-}
-.lcd-reset-btn {
-  background: rgba(239, 68, 68, 0.2);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  padding: 4px 12px;
-  border-radius: 10px;
-  font-size: 11px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-.lcd-reset-btn:active {
-  transform: scale(0.92);
-  background: rgba(239, 68, 68, 0.4);
-}
-.dhikr-selector-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.custom-select {
-  border-radius: 14px !important;
-  border: 1px solid #cbd5e1 !important;
-  font-weight: 700 !important;
-  color: #1e293b !important;
-}
-.electronic-tap-area {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
-}
-.electronic-tap-btn {
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  border: 0;
-  background: radial-gradient(circle at 30% 30%, #38bdf8 0%, #0284c7 50%, #0369a1 100%);
-  padding: 12px;
-  box-shadow: 0 16px 30px rgba(2, 132, 199, 0.35), inset 0 4px 10px rgba(255, 255, 255, 0.6), inset 0 -8px 16px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-.electronic-tap-btn:active {
-  transform: scale(0.92);
-  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.4), inset 0 2px 6px rgba(255, 255, 255, 0.3), inset 0 -4px 10px rgba(0, 0, 0, 0.6);
-}
-.btn-outer-ring {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 2px dashed rgba(255, 255, 255, 0.6);
-  padding: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btn-inner-core {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 30%, #0f172a 0%, #1e293b 100%);
-  border: 2px solid #38bdf8;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.6);
-}
-.tap-text {
-  font-size: 26px;
-  font-weight: 900;
-  color: #38bdf8;
-  text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-}
-.tap-subtext {
-  font-size: 12px;
-  color: #94a3b8;
-  margin-top: 2px;
-}
+.banner-card{background:#fff;border-radius:15px;padding:15px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center}
+.banner-text h4{font-size:13px;color:var(--primary)}.banner-text p{font-size:11px;color:var(--muted);margin-top:3px}
+.banner-btn,.primary-btn{background:var(--primary);color:white;border:0;border-radius:15px;padding:8px 14px;font-size:12px;font-weight:bold;cursor:pointer}
+.bottom-nav{position:absolute;bottom:0;left:0;width:100%;height:70px;background:var(--primary);display:flex;justify-content:space-around;align-items:center;border-radius:22px 22px 0 0;box-shadow:0 -4px 12px rgba(0,0,0,.1);z-index:999;}
+.nav-item{background:none;border:0;color:rgba(255,255,255,.8);font-size:22px;cursor:pointer;padding:10px}
+.nav-center-btn{width:52px;height:52px;background:#fff!important;border-radius:50%;color:var(--primary)!important;margin-top:-22px;border:3px solid var(--bg)!important;font-size:22px;cursor:pointer;display:grid;place-items:center}
 
-/* ================= تصميم متطور وعصري لقارئ الأذكار ================= */
-.dhikr-player {
-  background: linear-gradient(145deg, #ffffff, #f0f5f9) !important;
-  border-radius: 28px !important;
-  padding: 22px 18px !important;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.08) !important;
-  margin-top: 10px !important;
-  text-align: center !important;
-  border: 1px solid #dbe6ee !important;
-}
-.player-category {
-  font-size: 12px !important;
-  color: #3b7ea1 !important;
-  font-weight: 700 !important;
-  background: #e8f3f8 !important;
-  display: inline-block !important;
-  padding: 5px 14px !important;
-  border-radius: 20px !important;
-}
-.player-title {
-  font-size: 20px !important;
-  font-weight: 900 !important;
-  color: #1b4965 !important;
-  margin: 12px 0 14px !important;
-}
-.dhikr-arabic {
-  font-size: 22px !important;
-  line-height: 2.2 !important;
-  color: #0f172a !important;
-  margin: 18px 5px !important;
-  font-family: 'Amiri', 'Traditional Arabic', Tahoma, serif !important;
-  background: #ffffff !important;
-  padding: 18px 14px !important;
-  border-radius: 20px !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.03) !important;
-}
-.repeat-box {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  background: linear-gradient(135deg, #1b4965, #2b719b) !important;
-  border-radius: 16px !important;
-  padding: 12px 18px !important;
-  margin: 16px 0 !important;
-  color: #ffffff !important;
-}
-.repeat-box span { font-size: 13px !important; font-weight: 600 !important; }
-.repeat-box strong { font-size: 20px !important; color: #ffd700 !important; font-weight: 900 !important; }
+/* ================= شاشات التحدي ================= */
+.page-head{display:flex;align-items:center;justify-content:space-between;height:50px;margin-bottom:12px}
+.page-head h2{color:var(--primary);font-size:22px;text-align:center;flex:1}
+.back-btn{width:42px;border:0;background:none;color:var(--primary);font-size:32px;line-height:1;cursor:pointer}
 
-.dhikr-tap {
-  width: 195px !important;
-  height: 195px !important;
-  border-radius: 50% !important;
-  border: 0 !important;
-  background: radial-gradient(circle at 30% 30%, #38bdf8 0%, #0284c7 50%, #0369a1 100%) !important;
-  margin: 20px auto !important;
-  display: grid !important;
-  place-items: center !important;
-  color: #ffffff !important;
-  box-shadow: 0 14px 30px rgba(2, 132, 199, 0.35), inset 0 4px 10px rgba(255, 255, 255, 0.6), inset 0 -8px 16px rgba(0, 0, 0, 0.4) !important;
-  cursor: pointer !important;
-  user-select: none !important;
-  transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+.setup-card,.challenge-card,.counter-status{
+  background:linear-gradient(135deg,#edf5fc,#e5f0f8);
+  border:1px solid #c3d6e2;border-radius:20px;padding:16px;
+  box-shadow:var(--shadow);margin-bottom:16px
 }
-.dhikr-tap:active {
-  transform: scale(0.92) !important;
-  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4), inset 0 2px 6px rgba(255, 255, 255, 0.3) !important;
-}
-.tap-inner-circle {
-  width: 165px;
-  height: 165px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 30%, #0f172a 0%, #1e293b 100%);
-  border: 2px solid #38bdf8;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 4px 12px rgba(0,0,0,0.6);
-}
-.tap-number {
-  font-size: 48px !important;
-  font-weight: 900 !important;
-  color: #38bdf8 !important;
-  text-shadow: 0 0 15px rgba(56, 189, 248, 0.8) !important;
-}
-.tap-label {
-  font-size: 12px !important;
-  color: #94a3b8 !important;
-  margin-top: -2px !important;
-}
+.setup-card h3{color:var(--primary-dark);font-size:16px;margin-bottom:12px}
+.field{margin-bottom:12px}.field label{display:block;font-size:12px;font-weight:700;color:#526773;margin-bottom:6px}
+.field input,.field select{width:100%;height:44px;border:1px solid #b9cbd7;border-radius:12px;background:white;padding:0 12px;font-size:14px;color:var(--text);outline:none}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.primary-btn{width:100%;height:46px;font-size:14px}
+
+.challenge-title{font-size:22px;color:var(--primary);font-weight:800;text-align:right}
+.challenge-days-line{font-size:14px;color:var(--primary-dark);font-weight:700;text-align:right;margin-top:5px}
+.daily-label{font-size:15px;color:#334955;text-align:right;margin:16px 0 10px}
+.challenge-meta{display:flex;justify-content:space-between;color:var(--primary);font-size:19px;font-weight:800}
+.progress{height:10px;background:#ddd;border-radius:10px;overflow:hidden;margin-top:10px}
+.progress i{display:block;height:100%;background:var(--primary);border-radius:10px}
+.days-title{text-align:center;color:var(--primary);font-size:18px;font-weight:700;margin:15px 0 10px}
+.days-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.day-card{min-height:130px;border-radius:18px;border:1.5px solid #a7c4d6;background:#edf2f6;padding:10px 6px;text-align:center;cursor:pointer}
+.day-card.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.day-card.done{background:#e8f4ec;border-color:#8ebda0;color:#286b47}
+.day-num{font-size:18px;font-weight:700;color:#83adc3}.active .day-num,.done .day-num{color:inherit}
+.day-count{font-size:15px;margin-top:10px}
+.day-progress{height:8px;background:#fff;border-radius:10px;margin-top:10px;overflow:hidden}
+.day-progress i{display:block;height:100%;background:#fff}.done .day-progress i{background:#4d9b70}
+.lock{font-size:22px;opacity:.55;margin-top:16px}
+.reset-btn{display:block;margin:16px auto 0;background:none;border:0;color:#8b3c3c;font-size:12px;cursor:pointer}
+
+/* ================= شاشة حلقة التسبيح ================= */
+.dhikr-text{text-align:center;color:#050505;font-size:26px;font-weight:800;margin:30px 0 20px}
+.tasbeeh-button{display:flex;justify-content:center;align-items:center;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:transform 0.1s ease;margin:15px auto}
+.tasbeeh-button:active{transform:scale(0.93)}
+.tasbeeh-ring{width:260px;height:260px;border-radius:50%;padding:16px;background:radial-gradient(circle at 30% 30%, #e0a96d 0%, #a86e32 45%, #583311 100%);box-shadow:0 14px 30px rgba(0,0,0,0.25);position:relative}
+.ring-inner{position:relative;width:100%;height:100%;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle at 50% 30%, #1b263b 0%, #0d1b2a 100%);border:3px solid #e0a96d}
+.counter-number{font-size:60px;color:#ffffff;font-weight:900;text-shadow:0 0 15px rgba(224,169,109,0.8)}
+.counter-label-btn{font-size:13px;color:#e0a96d;font-weight:bold;margin-top:-2px;background:rgba(224,169,109,0.15);padding:4px 12px;border-radius:16px;border:1px solid rgba(224,169,109,0.4)}
+.complete-msg{text-align:center;color:#2f7b51;font-weight:700;margin-top:15px;font-size:13px;display:none}
+
+/* ================= الإنجازات ================= */
+.levels-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 2px 20px}
+.level-card{height:140px;border-radius:18px;overflow:hidden;background:#c9c9c9;box-shadow:0 3px 8px rgba(0,0,0,.1);cursor:pointer;position:relative;text-align:center}
+.level-card.unlocked{background:#2f739e;color:#fff}
+.level-stars{font-size:20px;color:#f1b900;margin-top:8px}
+.level-number{font-size:48px;line-height:1;font-weight:900;color:#fff;margin-top:10px}
+.level-footer{position:absolute;bottom:0;left:0;right:0;height:42px;background:rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800}
+.level-badge{position:absolute;right:8px;bottom:6px;font-size:20px}
+.level-small-progress{position:absolute;top:6px;left:6px;font-size:10px;font-weight:700}
+
+/* ================= العداد السريع والمسبحة الرقمية ================= */
+.electronic-counter-card{background:linear-gradient(145deg, #ffffff, #f0f5f9);border-radius:24px;padding:18px;border:1px solid #d4e2ed;box-shadow:0 8px 24px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:15px}
+.electronic-screen{background:radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 100%);border-radius:18px;padding:16px;color:#fff;border:2px solid #38bdf8;display:flex;flex-direction:column;gap:10px}
+.lcd-number{font-size:56px;font-weight:900;color:#38bdf8;font-family:monospace;text-align:center;display:block;margin:10px 0}
+.electronic-tap-btn{width:180px;height:180px;border-radius:50%;border:0;background:radial-gradient(circle at 30% 30%, #38bdf8 0%, #0284c7 50%, #0369a1 100%);cursor:pointer;margin:10px auto;display:flex;justify-content:center;align-items:center;box-shadow:0 12px 24px rgba(2,132,199,0.3)}
+.electronic-tap-btn:active{transform:scale(0.93)}
+.btn-inner-core{width:150px;height:150px;border-radius:50%;background:#0f172a;border:2px solid #38bdf8;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#38bdf8;font-size:22px;font-weight:900}
+
+.tool-card,.settings-card{background:#fff;border-radius:20px;padding:18px;box-shadow:var(--shadow);border:1px solid #d5e1e8}
+.quick-number{text-align:center;font-size:60px;font-weight:800;color:var(--primary);margin:15px 0}
+.digital-bead{width:190px;height:190px;border-radius:50%;border:4px solid #e0a96d;background:radial-gradient(circle at 30% 30%, #2b719b 0%, #1b4965 60%, #0d2535 100%);color:#fff;font-size:48px;font-weight:900;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;margin:15px auto}
+.digital-bead:active{transform:scale(0.93)}
+.secondary-action{width:100%;height:42px;border:1px solid #bfd1dc;border-radius:12px;background:#fff;color:var(--primary);font-weight:700;margin-top:8px;cursor:pointer}
+.digital-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+/* ================= الأدعية والقرآن ================= */
+.dhikr-categories{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dhikr-category{border:0;background:#fff;border-radius:16px;padding:14px 8px;box-shadow:var(--shadow);text-align:center;cursor:pointer}
+.dhikr-list{display:grid;gap:10px;margin-top:12px}
+.dhikr-item{background:#fff;border:1px solid #e1e8ee;border-radius:16px;padding:14px;cursor:pointer;text-align:right}
+.dhikr-player{background:#fff;border-radius:22px;padding:18px;box-shadow:var(--shadow);text-align:center}
+.dhikr-arabic{font-size:20px;line-height:2;color:#0f172a;margin:15px 0;background:#fff;padding:14px;border-radius:16px;border:1px solid #e2e8f0}
+.dhikr-tap{width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #38bdf8 0%, #0284c7 50%, #0369a1 100%);margin:15px auto;display:grid;place-items:center;color:#fff;cursor:pointer}
+.dhikr-tap:active{transform:scale(0.93)}
+.tap-inner-circle{width:140px;height:140px;border-radius:50%;background:#0f172a;border:2px solid #38bdf8;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#38bdf8}
+.surah-list{display:grid;gap:8px;margin-top:12px}
+.surah-row{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:#f1f6f9;border:0;cursor:pointer}
+
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature-card{min-height:115px;border:0;border-radius:16px;background:#fff;box-shadow:var(--shadow);color:var(--primary);font-size:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+.setting-row{display:flex;justify-content:space-between;align-items:center;padding:14px 4px;border-bottom:1px solid #edf1f3;font-size:13px}
+.dark-mode{--bg:#17212b;--card:#24313c;--text:#eef5f8;--muted:#aab9c2}
+.dark-mode body{color:var(--text)}
+.dark-mode .tool-card,.dark-mode .settings-card,.dark-mode .menu-item,.dark-mode .feature-card{background:#24313c}
 </style>
 </head>
 
 <body>
 <div class="phone">
 
-<!-- ================= الواجهة الرئيسية ================= -->
+<!-- 1. الواجهة الرئيسية -->
 <section class="screen" id="homeScreen">
   <div class="header">
     <div class="user-info">
@@ -547,84 +184,58 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
     <div class="streak">🔥 Streak ١ Day</div>
   </div>
 
-  <div class="prayer-card" style="background: linear-gradient(135deg, #1b4965, #2b719b); color: #fff; padding: 20px; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 20px; text-align: center;">
-    <div style="font-size: 13px; opacity: 0.9; margin-bottom: 6px; font-weight: bold; color: #ffd700;">✨ فضل الذكر والتسبيح ✨</div>
-    <div style="font-size: 16px; font-weight: 800; line-height: 1.6; margin-bottom: 8px;" id="dailyHadithText">«أَحَبُّ الكَلاَمِ إِلَى اللهِ أَرْبَعٌ: سُبْحَانَ اللهِ، وَالْحَمْدُ لِلَّهِ، وَلاَ إِلَهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ»</div>
-    <div style="font-size: 11px; opacity: 0.8; font-style: italic;">― رسول الله ﷺ (رواه مسلم)</div>
+  <div style="background: linear-gradient(135deg, #1b4965, #2b719b); color: #fff; padding: 18px; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 20px; text-align: center;">
+    <div style="font-size: 13px; margin-bottom: 6px; font-weight: bold; color: #ffd700;">✨ فضل الذكر والتسبيح ✨</div>
+    <div style="font-size: 15px; font-weight: 800; line-height: 1.6; margin-bottom: 6px;">«أَحَبُّ الكَلاَمِ إِلَى اللهِ أَرْبَعٌ: سُبْحَانَ اللهِ، وَالْحَمْدُ لِلَّهِ، وَلاَ إِلَهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ»</div>
+    <div style="font-size: 11px; opacity: 0.8;">― رواه مسلم</div>
   </div>
 
   <div class="grid-menu">
-    <button class="menu-item" onclick="openQuickCounter()">
-      <div class="menu-icon-3d icon-counter">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="3" fill="url(#grad1)" stroke="#3b7ea1"/><path d="M8 8h8M8 12h8M8 16h4" stroke="#fff" stroke-linecap="round"/></svg>
-      </div>
+    <button type="button" class="menu-item" onclick="openQuickCounter()">
+      <div class="menu-icon-3d">🔢</div>
       <span>عداد التسبيح</span>
     </button>
-    <button class="menu-item" onclick="openDigitalTasbeeh()">
-      <div class="menu-icon-3d icon-beads">
-        <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="5" r="3" fill="#e0a96d"/><circle cx="18" cy="9" r="3" fill="#e0a96d"/><circle cx="18" cy="15" r="3" fill="#e0a96d"/><circle cx="12" cy="19" r="3.5" fill="#ffd700"/><circle cx="6" cy="15" r="3" fill="#e0a96d"/><circle cx="6" cy="9" r="3" fill="#e0a96d"/></svg>
-      </div>
+    <button type="button" class="menu-item" onclick="openDigitalTasbeeh()">
+      <div class="menu-icon-3d">📿</div>
       <span>المسبحة الرقمية</span>
     </button>
     <button type="button" class="menu-item" onclick="openAchievements()">
-      <div class="menu-icon-3d icon-crown">
-        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M3 17l2-10 4 4 3-6 3 6 4-4 2 10H3z" fill="url(#gradCrown)" stroke="#d4af37" stroke-width="1.5"/></svg>
-      </div>
+      <div class="menu-icon-3d">🏆</div>
       <span>الإنجازات</span>
     </button>
-    <button class="menu-item" onclick="openChallengeSetup()">
-      <div class="menu-icon-3d icon-trophy">
-        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M6 3h12v4a6 6 0 0 1-12 0V3z" fill="#ffd700"/><path d="M9 13v3h6v-3" stroke="#c58b4e" stroke-width="2"/><path d="M8 21h8" stroke="#c58b4e" stroke-width="3"/></svg>
-      </div>
+    <button type="button" class="menu-item" onclick="openChallengeSetup()">
+      <div class="menu-icon-3d">🎯</div>
       <span>تحدي التسبيح</span>
     </button>
     <button type="button" class="menu-item" onclick="openDuas()">
-      <div class="menu-icon-3d icon-book">
-        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="#2b719b" stroke-width="2"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="url(#gradBook)" stroke="#1b4965"/></svg>
-      </div>
+      <div class="menu-icon-3d">📖</div>
       <span>الأدعية والأذكار</span>
     </button>
-    <button class="menu-item" onclick="openQuran()">
-      <div class="menu-icon-3d icon-quran">
-        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 3v18M12 3C9 2 4 3 4 3v15s5-1 8 0M12 3c3-2 8-1 8-1v15s-5-1-8 0" stroke="#1b4965" stroke-width="2" fill="url(#gradQuran)"/></svg>
-      </div>
+    <button type="button" class="menu-item" onclick="openQuran()">
+      <div class="menu-icon-3d">📗</div>
       <span>القرآن المجيد</span>
     </button>
-    <button class="menu-item" onclick="openMoreFeatures()">
-      <div class="menu-icon-3d icon-more">
-        <svg viewBox="0 0 24 24" width="28" height="28"><rect x="3" y="3" width="7" height="7" rx="2" fill="#3b7ea1"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#e0a96d"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#e0a96d"/><rect x="14" y="14" width="7" height="7" rx="2" fill="#3b7ea1"/></svg>
-      </div>
+    <button type="button" class="menu-item" onclick="openMoreFeatures()">
+      <div class="menu-icon-3d">🗂️</div>
       <span>المزيد من الميزات</span>
     </button>
-    <button class="menu-item" onclick="openSettings()">
-      <div class="menu-icon-3d icon-settings">
-        <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="3" fill="#2c3e50"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="#2c3e50" stroke-width="1.5" fill="none"/></svg>
-      </div>
+    <button type="button" class="menu-item" onclick="openSettings()">
+      <div class="menu-icon-3d">⚙️</div>
       <span>الإعدادات</span>
     </button>
   </div>
-  
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b7ea1"/><stop offset="100%" stop-color="#1b4965"/></linearGradient>
-      <linearGradient id="gradCrown" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffd700"/><stop offset="100%" stop-color="#b8860b"/></linearGradient>
-      <linearGradient id="gradBook" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e0f2fe"/><stop offset="100%" stop-color="#bae6fd"/></linearGradient>
-      <linearGradient id="gradQuran" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef3c7"/><stop offset="100%" stop-color="#fde68a"/></linearGradient>
-    </defs>
-  </svg>
 
   <div class="banner-card">
-    <div class="banner-text"><h4>وضع تحدي التسبيح</h4><p>انضم إلى تحدي التسبيح وابنِ عادة يومية</p></div>
-    <button class="banner-btn" onclick="openChallengeSetup()">جرب الآن</button>
+    <div class="banner-text"><h4>وضع تحدي التسبيح</h4><p>ابنِ عادة يومية محددة</p></div>
+    <button type="button" class="banner-btn" onclick="openChallengeSetup()">جرب الآن</button>
   </div>
 </section>
 
-<!-- ================= إنشاء التحدي ================= -->
+<!-- 2. إعداد التحدي -->
 <section class="screen hidden" id="setupScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>تحدي التسبيح</h2><div style="width:42px"></div></div>
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>تحدي التسبيح</h2><div style="width:42px"></div></div>
   <div class="setup-card">
     <h3>إنشاء تحدي جديد</h3>
-
     <div class="field">
       <label>اختر الذكر</label>
       <select id="dhikrSelect">
@@ -633,98 +244,43 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
         <option>اللَّهُ أَكْبَرُ</option>
         <option>لَا إِلٰهَ إِلَّا اللَّهُ</option>
         <option>أستغفر الله</option>
-        <option>اللَّهُمَّ بَارِكْ لِي</option>
-        <option>يَا صَبُورُ</option>
       </select>
     </div>
-
     <div class="field-row">
-      <div class="field"><label>عدد التسبيحات</label><input id="totalInput" type="number" min="1" value="1000"></div>
-      <div class="field"><label>عدد الأيام</label><input id="daysInput" type="number" min="1" max="90" value="10"></div>
+      <div class="field"><label>عدد التسبيحات</label><input id="totalInput" type="number" value="1000"></div>
+      <div class="field"><label>عدد الأيام</label><input id="daysInput" type="number" value="10"></div>
     </div>
-
-    <button class="primary-btn" onclick="createChallenge()">إنشاء التحدي</button>
+    <button type="button" class="primary-btn" onclick="createChallenge()">إنشاء التحدي</button>
   </div>
 </section>
 
-<!-- ================= بطاقات أيام التحدي ================= -->
+<!-- 3. أيام التحدي -->
 <section class="screen hidden" id="daysScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>تحدي التسبيح</h2><div style="width:42px"></div></div>
-
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>تحدي التسبيح</h2><div style="width:42px"></div></div>
   <div class="challenge-card">
     <div class="challenge-title" id="daysChallengeTitle">10 Day Challenge</div>
-    <div class="challenge-days-line" id="daysChallengeCount">عدد أيام التحدي: 10 أيام</div>
-    <div class="daily-label">التركيبة اليومية</div>
+    <div class="challenge-days-line" id="daysChallengeCount">عدد الأيام: 10 أيام</div>
+    <div class="daily-label">التقدم الكلي</div>
     <div class="challenge-meta"><span id="overallCount">0 / 1000</span><span id="overallPercent">0%</span></div>
     <div class="progress"><i id="overallProgress" style="width:0%"></i></div>
   </div>
-
   <div class="days-title">أيام التحدي</div>
   <div class="days-grid" id="daysGrid"></div>
-  <button class="reset-btn" onclick="deleteChallenge()">إعادة إنشاء التحدي</button>
+  <button type="button" class="reset-btn" onclick="deleteChallenge()">إعادة إنشاء التحدي</button>
 </section>
 
-<!-- ================= شاشة الإنجازات ================= -->
-<section class="screen hidden" id="achievementsScreen">
-  <div class="page-head">
-    <button class="back-btn" onclick="goHome()">←</button>
-    <h2>الإنجازات</h2>
-    <div class="achievement-crown">♛</div>
-  </div>
-  <div class="levels-grid" id="levelsGrid"></div>
-</section>
-
-<!-- ================= تفاصيل المستوى ================= -->
-<section class="screen hidden" id="levelScreen">
-  <div class="page-head">
-    <button class="back-btn" onclick="openAchievements()">←</button>
-    <h2 id="levelPageTitle">المستوى 1</h2>
-    <div style="width:42px"></div>
-  </div>
-
-  <div class="level-detail-card"><div class="detail-progress-circle" id="detailProgressCircle">0%</div>
-    <div class="level-stars" id="detailStars">★ ★ ★</div>
-    <div class="level-circle" id="detailLevelCircle">1</div>
-
-    <div class="detail-row">
-      <span id="detailDays">3 / 0</span>
-      <label>أيام</label>
-    </div>
-    <div class="detail-bar"><i id="detailDaysBar"></i></div>
-
-    <div class="detail-row">
-      <span id="detailCounts">5000 / 0</span>
-      <label>إجمالي الأعداد:</label>
-    </div>
-    <div class="detail-bar"><i id="detailCountsBar"></i></div>
-
-    <div class="detail-row">
-      <span id="detailTime">—</span>
-      <label>الوقت</label>
-    </div>
-    <div class="detail-bar"><i id="detailTimeBar"></i></div>
-
-    <div class="achievement-history" id="achievementHistory"></div>
-  </div>
-</section>
-
-<!-- ================= شاشة المسبحة داخل نفس التطبيق ================= -->
+<!-- 4. شاشة التسبيح داخل التحدي -->
 <section class="screen hidden" id="counterScreen">
-  <div class="page-head"><button class="back-btn" onclick="backToDays()">←</button><h2 id="counterDayTitle">Day 1</h2><div style="width:42px"></div></div>
-
+  <div class="page-head"><button type="button" class="back-btn" onclick="backToDays()">←</button><h2 id="counterDayTitle">Day 1</h2><div style="width:42px"></div></div>
   <div class="counter-status">
-    <div class="challenge-title" id="counterChallengeTitle">10 Day Challenge</div>
-    <div class="challenge-days-line" id="counterChallengeDays">عدد أيام التحدي: 10 أيام</div>
-    <div class="counter-daily">التركيبة اليومية</div>
-    <div class="counter-meta">
+    <div class="challenge-title" id="counterChallengeTitle">التحدي</div>
+    <div class="counter-meta" style="margin-top:10px">
       <span id="dailyCount">0 / 100</span>
       <small id="dailyRemaining">المتبقي: 100</small>
     </div>
-    <div class="counter-progress"><i id="dailyProgress" style="width:0%"></i></div>
+    <div class="progress"><i id="dailyProgress" style="width:0%"></i></div>
   </div>
-
   <div class="dhikr-text" id="counterDhikr">سُبْحَانَ اللَّهِ</div>
-
   <div class="tasbeeh-button" onclick="pressTasbeeh()">
     <div class="tasbeeh-ring">
       <div class="ring-inner">
@@ -733,295 +289,144 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
       </div>
     </div>
   </div>
-
-  <div class="counter-hint">اضغط على المسبحة للتسبيح</div>
-  <div class="complete-msg" id="completeMessage">أحسنت، اكتمل تحدي اليوم. تم فتح اليوم التالي.</div>
+  <div class="complete-msg" id="completeMessage">أحسنت! اكتمل ورد اليوم.</div>
 </section>
 
-<!-- ================= الأدعية والأذكار ================= -->
-<section class="screen hidden" id="dhikrScreen">
-  <div class="page-head">
-    <button type="button" class="back-btn" onclick="backFromDhikr()">←</button>
-    <h2 id="dhikrPageTitle">الأدعية والأذكار</h2>
-    <div style="width:42px"></div>
+<!-- 5. الإنجازات -->
+<section class="screen hidden" id="achievementsScreen">
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>الإنجازات</h2><div style="width:42px"></div></div>
+  <div class="levels-grid" id="levelsGrid"></div>
+</section>
+
+<!-- 6. تفاصيل المستوى -->
+<section class="screen hidden" id="levelScreen">
+  <div class="page-head"><button type="button" class="back-btn" onclick="openAchievements()">←</button><h2 id="levelPageTitle">المستوى</h2><div style="width:42px"></div></div>
+  <div class="tool-card" style="text-align:center">
+    <div style="font-size:50px;color:#f1b900" id="detailStars">★★★</div>
+    <div style="font-size:70px;font-weight:900;color:var(--primary)" id="detailLevelCircle">1</div>
+    <div style="font-size:18px;margin-top:15px" id="detailCounts">0 / 5000</div>
+    <div class="progress" style="margin-top:10px"><i id="detailCountsBar" style="width:0%"></i></div>
+    <p style="margin-top:20px;font-size:12px;color:var(--muted)" id="achievementHistory"></p>
   </div>
-  <div id="dhikrContent"></div>
 </section>
 
-<!-- ================= عداد التسبيح السريع الإلكتروني ================= -->
+<!-- 7. العداد السريع -->
 <section class="screen hidden" id="quickCounterScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>عداد التسبيح</h2><div style="width:42px"></div></div>
-  
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>عداد التسبيح</h2><div style="width:42px"></div></div>
   <div class="electronic-counter-card">
     <div class="electronic-screen">
-      <div class="counter-header-row">
-        <span class="dhikr-tag-badge" id="currentDhikrBadge">سُبْحَانَ اللَّهِ</span>
-        <span class="session-label">الجلسة الحالية</span>
+      <div style="display:flex;justify-content:space-between">
+        <span style="color:#38bdf8;font-weight:bold" id="currentDhikrBadge">سُبْحَانَ اللَّهِ</span>
+        <button type="button" style="background:#ef4444;color:#fff;border:0;padding:2px 8px;border-radius:6px;cursor:pointer" onclick="resetQuickCounter()">تصفير ↺</button>
       </div>
-      <div class="digital-lcd-display">
-        <span class="lcd-number" id="quickNumber">0</span>
-      </div>
-      <div class="digital-footer-info">
+      <span class="lcd-number" id="quickNumber">0</span>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#94a3b8">
         <span>إجمالي اليوم: <b id="quickCounterDailyTotal">0</b></span>
-        <button class="lcd-reset-btn" onclick="resetQuickCounter()">تصفير ↺</button>
       </div>
     </div>
-
-    <div class="dhikr-selector-wrapper">
-      <label class="tool-label">اختر الذكر المبارك:</label>
-      <select id="quickDhikrSelect" onchange="changeQuickDhikr()" class="tool-select custom-select">
+    <div class="field">
+      <label>اختر الذكر:</label>
+      <select id="quickDhikrSelect" onchange="changeQuickDhikr()">
         <option value="سُبْحَانَ اللَّهِ">سُبْحَانَ اللَّهِ</option>
         <option value="الْحَمْدُ لِلَّهِ">الْحَمْدُ لِلَّهِ</option>
         <option value="اللَّهُ أَكْبَرُ">اللَّهُ أَكْبَرُ</option>
-        <option value="لَا إِلٰهَ إِلَّا اللَّهُ">لَا إِلٰهَ إِلَّا اللَّهُ</option>
-        <option value="أستغفر الله وأتوب إليه">أستغفر الله وأتوب إليه</option>
-        <option value="اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</option>
-        <option value="لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</option>
-        <option value="سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ</option>
-        <option value="لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ">لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</option>
-        <option value="حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ">حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ</option>
-        <option value="يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ</option>
+        <option value="أستغفر الله">أستغفر الله</option>
+        <option value="اللَّهُمَّ صَلِّ عَلَى نَبِيِّنَا مُحَمَّدٍ">اللَّهُمَّ صَلِّ عَلَى نَبِيِّنَا مُحَمَّدٍ</option>
       </select>
     </div>
+    <button type="button" class="electronic-tap-btn" onclick="tapQuickCounter()">
+      <div class="btn-inner-core"><span>اضغط</span><small style="font-size:11px">للتسبيح</small></div>
+    </button>
+  </div>
+</section>
 
-    <div class="electronic-tap-area">
-      <button class="electronic-tap-btn" onclick="tapQuickCounter()">
-        <div class="btn-outer-ring">
-          <div class="btn-inner-core">
-            <span class="tap-text">اضغط</span>
-            <small class="tap-subtext">للتسبيح</small>
-          </div>
-        </div>
-      </button>
+<!-- 8. المسبحة الرقمية -->
+<section class="screen hidden" id="digitalScreen">
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>المسبحة الرقمية</h2><div style="width:42px"></div></div>
+  <div class="tool-card" style="text-align:center">
+    <div style="font-size:12px;color:var(--muted)">إجمالي التسبيحات المحفوظة</div>
+    <div class="quick-number" id="digitalTotal">0</div>
+    <button type="button" class="digital-bead" onclick="tapDigital()"><span id="digitalSession">0</span><small style="font-size:13px">اضغط</small></button>
+    <div class="digital-actions">
+      <button type="button" class="secondary-action" onclick="resetDigitalSession()">تصفير</button>
+      <button type="button" class="secondary-action" onclick="saveDigitalSession()">حفظ الجلسة</button>
     </div>
   </div>
 </section>
 
-<!-- ================= المسبحة الرقمية ================= -->
-<section class="screen hidden" id="digitalScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>المسبحة الرقمية</h2><div style="width:42px"></div></div>
-  <div class="tool-card digital-card">
-    <div class="digital-total-label">إجمالي التسبيحات المحفوظة</div>
-    <div class="quick-number" id="digitalTotal">0</div>
-    <button class="digital-bead" onclick="tapDigital()"><span id="digitalSession">0</span><small>اضغط</small></button>
-    <div class="digital-actions"><button class="secondary-action" onclick="resetDigitalSession()">تصفير الجلسة</button><button class="secondary-action" onclick="saveDigitalSession()">حفظ الجلسة</button></div>
-    <p class="tool-note">تُحفظ الجلسة محليًا على الجهاز، ويمكنك استخدامها كمسبحة يومية مستقلة عن التحديات.</p>
-  </div>
+<!-- 9. الأدعية والأذكار -->
+<section class="screen hidden" id="dhikrScreen">
+  <div class="page-head"><button type="button" class="back-btn" onclick="backFromDhikr()">←</button><h2 id="dhikrPageTitle">الأدعية والأذكار</h2><div style="width:42px"></div></div>
+  <div id="dhikrContent"></div>
 </section>
 
-<!-- ================= المزيد من الميزات ================= -->
-<section class="screen hidden" id="moreScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>المزيد من الميزات</h2><div style="width:42px"></div></div>
-  <div class="feature-grid">
-    <button class="feature-card" onclick="openQuickCounter()">🔢<b>عداد سريع</b><small>جلسة تسبيح مستقلة</small></button>
-    <button class="feature-card" onclick="openDigitalTasbeeh()">📿<b>المسبحة اليومية</b><small>إجمالي محفوظ</small></button>
-    <button class="feature-card" onclick="openDuas()">🛡️<b>حصن المسلم</b><small>أذكار متتابعة</small></button>
-    <button class="feature-card" onclick="openAchievements()">🏆<b>الإنجازات</b><small>المستويات والتقدم</small></button>
-    <button class="feature-card" onclick="openQuran()">📖<b>ختمة القرآن</b><small>تتبع القراءة</small></button>
-    <button class="feature-card" onclick="openSettings()">⚙️<b>الإعدادات</b><small>تخصيص التطبيق</small></button>
-  </div>
-</section>
-
-<!-- ================= القرآن المجيد ================= -->
+<!-- 10. القرآن المجيد -->
 <section class="screen hidden" id="quranScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>القرآن المجيد</h2><div style="width:42px"></div></div>
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>القرآن المجيد</h2><div style="width:42px"></div></div>
   <div class="tool-card">
-    <div class="quran-progress"><span>تقدم الختمة</span><b id="quranProgressText">0%</b></div>
+    <div style="display:flex;justify-content:space-between;color:var(--primary);font-weight:bold;margin-bottom:8px"><span>تقدم الختمة</span><b id="quranProgressText">0%</b></div>
     <div class="progress"><i id="quranProgressBar" style="width:0%"></i></div>
-    <input class="tool-input" id="quranSearch" oninput="renderQuran()" placeholder="ابحث عن سورة...">
+    <input style="width:100%;height:40px;border:1px solid #ccc;border-radius:10px;padding:0 10px;margin-top:12px" id="quranSearch" oninput="renderQuran()" placeholder="ابحث عن سورة...">
     <div class="surah-list" id="surahList"></div>
   </div>
 </section>
 
-<!-- ================= الإعدادات ================= -->
-<section class="screen hidden" id="settingsScreen">
-  <div class="page-head"><button class="back-btn" onclick="goHome()">←</button><h2>الإعدادات</h2><div style="width:42px"></div></div>
-  <div class="settings-card">
-    <label class="setting-row"><span>اهتزاز عند الضغط</span><input type="checkbox" id="vibrationSetting" onchange="saveSettings()"></label>
-    <label class="setting-row"><span>حفظ الجلسات تلقائيًا</span><input type="checkbox" id="autoSaveSetting" checked onchange="saveSettings()"></label>
-    <label class="setting-row"><span>الوضع الليلي</span><input type="checkbox" id="darkSetting" onchange="toggleDarkMode()"></label>
-    <button class="secondary-action" onclick="clearAppData()">مسح بيانات التقدم</button>
+<!-- 11. المزيد من الميزات -->
+<section class="screen hidden" id="moreScreen">
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>المزيد من الميزات</h2><div style="width:42px"></div></div>
+  <div class="feature-grid">
+    <button type="button" class="feature-card" onclick="openQuickCounter()">🔢<b style="font-size:13px">عداد سريع</b></button>
+    <button type="button" class="feature-card" onclick="openDigitalTasbeeh()">📿<b style="font-size:13px">المسبحة اليومية</b></button>
+    <button type="button" class="feature-card" onclick="openDuas()">📖<b style="font-size:13px">الأذكار</b></button>
+    <button type="button" class="feature-card" onclick="openAchievements()">🏆<b style="font-size:13px">الإنجازات</b></button>
+    <button type="button" class="feature-card" onclick="openQuran()">📗<b style="font-size:13px">القرآن</b></button>
+    <button type="button" class="feature-card" onclick="openSettings()">⚙️<b style="font-size:13px">الإعدادات</b></button>
   </div>
 </section>
 
-<!-- الشريط السفلي -->
+<!-- 12. الإعدادات -->
+<section class="screen hidden" id="settingsScreen">
+  <div class="page-head"><button type="button" class="back-btn" onclick="goHome()">←</button><h2>الإعدادات</h2><div style="width:42px"></div></div>
+  <div class="settings-card">
+    <label class="setting-row"><span>اهتزاز عند الضغط</span><input type="checkbox" id="vibrationSetting" onchange="saveSettings()"></label>
+    <label class="setting-row"><span>الوضع الليلي</span><input type="checkbox" id="darkSetting" onchange="toggleDarkMode()"></label>
+    <button type="button" class="secondary-action" style="color:#ef4444" onclick="clearAppData()">مسح كافة البيانات</button>
+  </div>
+</section>
+
+<!-- الشريط السفلي الثابت -->
 <div class="bottom-nav" id="bottomNav">
-  <button class="nav-item" onclick="openMoreFeatures()">🗂️</button>
-  <button class="nav-item" onclick="openAchievements()">🏆</button>
-  <button class="nav-center-btn" onclick="goHome()">🏠</button>
-  <button class="nav-item" onclick="openQuickCounter()">🔢</button>
-  <button class="nav-item" onclick="openDigitalTasbeeh()">📿</button>
+  <button type="button" class="nav-item" onclick="openMoreFeatures()">🗂️</button>
+  <button type="button" class="nav-item" onclick="openAchievements()">🏆</button>
+  <button type="button" class="nav-center-btn" onclick="goHome()">🏠</button>
+  <button type="button" class="nav-item" onclick="openQuickCounter()">🔢</button>
+  <button type="button" class="nav-item" onclick="openDigitalTasbeeh()">📿</button>
+</div>
+
 </div>
 
 <script>
-let challenge = null;
-let currentDay = 0;
-let achievements = [];
-let selectedLevel = 1;
+// ================= إدارة الشاشات والتنقل =================
+const screens = [
+  "homeScreen", "setupScreen", "daysScreen", "counterScreen",
+  "achievementsScreen", "levelScreen", "quickCounterScreen",
+  "digitalScreen", "dhikrScreen", "quranScreen", "moreScreen", "settingsScreen"
+];
 
-function loadAchievements(){
-  try{
-    const saved = localStorage.getItem("tasbeehAchievements");
-    achievements = saved ? JSON.parse(saved) : [];
-    if(!Array.isArray(achievements)) achievements=[];
-  }catch(e){ achievements=[]; }
-}
-
-function saveAchievements(){
-  try{ localStorage.setItem("tasbeehAchievements",JSON.stringify(achievements)); }catch(e){}
-}
-
-function totalAchievedCount(){
-  return achievements.reduce((sum,a)=>sum + Number(a.count||0),0);
-}
-
-function levelTarget(level){
-  if(level<=100) return Math.round(5000 + (level-1)*(1000000-5000)/(99));
-  return 1000000;
-}
-
-function currentLevel(){
-  const total=totalAchievedCount();
-  let level=1;
-  for(let i=1;i<=100;i++){
-    if(total>=levelTarget(i)) level=i;
-    else break;
-  }
-  return Math.min(100,level);
-}
-
-function levelStars(level){
-  if(level>=100) return "★ ★ ★";
-  if(level>=50) return "★ ★ ☆";
-  return "★ ☆ ☆";
-}
-
-function levelBadge(level){
-  if(level>=100) return "🏆";
-  if(level>=50) return "🎖️";
-  return "🏅";
-}
-
-function openAchievements(){
-  showOnly("achievementsScreen");
-  loadAchievements();
-  renderAchievements();
-}
-
-function renderAchievements(){
-  const grid=document.getElementById("levelsGrid");
-  if(!grid) return;
-  grid.innerHTML="";
-  const lvl=currentLevel();
-  const total=totalAchievedCount();
-
-  for(let i=1;i<=100;i++){
-    const unlocked = i<=lvl;
-    const current = i===lvl;
-    const card=document.createElement("div");
-    card.className="level-card "+(unlocked?"unlocked":"locked");
-
-    const target=levelTarget(i);
-    const progress=Math.min(100,total/target*100);
-
-    card.innerHTML=`
-      <div class="level-small-progress">${current ? Math.round(progress)+"%" : (unlocked ? "✓" : "")}</div>
-      <div class="level-stars">${levelStars(i)}</div>
-      <div class="level-number">${formatK(target)}</div>
-      <div class="level-footer">Level ${i}</div>
-      <div class="level-badge">${unlocked?levelBadge(i):"🔒"}</div>
-    `;
-
-    if(unlocked) card.onclick=()=>openLevel(i);
-    grid.appendChild(card);
-  }
-}
-
-function formatK(n){
-  if(n>=1000000) return "1M";
-  return Math.round(n/1000)+"K";
-}
-
-function openLevel(level){
-  selectedLevel=level;
-  const unlocked=level<=currentLevel();
-  if(!unlocked) return;
-
-  const target=levelTarget(level);
-  const total=totalAchievedCount();
-  const previous=level===1?0:levelTarget(level-1);
-  const within=Math.max(0,total-previous);
-  const needed=Math.max(1,target-previous);
-
-  document.getElementById("levelPageTitle").textContent=`المستوى ${level}`;
-  document.getElementById("detailStars").textContent=levelStars(level);
-  document.getElementById("detailProgressCircle").textContent=Math.round(Math.min(100,total/target*100))+"%";
-  document.getElementById("detailLevelCircle").textContent=level;
-
-  document.getElementById("detailDays").textContent=`${achievements.length} / 0`;
-  document.getElementById("detailDaysBar").style.width="0%";
-
-  document.getElementById("detailCounts").textContent=`${target} / ${total}`;
-  document.getElementById("detailCountsBar").style.width=Math.min(100,total/target*100)+"%";
-
-  const timeText=achievements.length ? `${achievements.length} تحدي مكتمل` : "—";
-  document.getElementById("detailTime").textContent=timeText;
-  document.getElementById("detailTimeBar").style.width=(achievements.length?100:0)+"%";
-
-  const history=document.getElementById("achievementHistory");
-  if(achievements.length){
-    history.textContent=`إجمالي التسبيحات المحفوظة: ${total.toLocaleString("ar-DZ")} • الهدف لهذا المستوى: ${target.toLocaleString("ar-DZ")}`;
-  }else{
-    history.textContent="أكمل تحديات التسبيح لتسجيل إنجازاتك هنا.";
-  }
-
-  showOnly("levelScreen");
-}
-
-function addTasbeehToAchievements(count, dhikrName, challengeDays){
-  loadAchievements();
-  if(achievements.length === 0){
-    achievements.push({
-      dhikr: dhikrName || "تسبيح عام",
-      count: count,
-      days: challengeDays || 1,
-      completedAt: new Date().toISOString()
-    });
-  } else {
-    achievements[achievements.length - 1].count = (Number(achievements[achievements.length - 1].count) || 0) + count;
-  }
-  saveAchievements();
-}
-
-function recordCompletedChallenge(){
-  if(!challenge) return;
-  const count=Number(challenge.total||0);
-  if(count<=0) return;
-
-  achievements.push({
-    dhikr:challenge.dhikr,
-    count,
-    days:challenge.days,
-    completedAt:new Date().toISOString()
+function showOnly(targetId){
+  screens.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.classList.toggle("hidden", id !== targetId);
   });
-  saveAchievements();
+  const nav = document.getElementById("bottomNav");
+  if(nav){
+    nav.style.display = (targetId === "homeScreen" || targetId === "moreScreen") ? "flex" : "none";
+  }
 }
 
-/* ================= تنقل داخلي ثابت ================= */
-let dhikrView='home';
-function backFromDhikr(){
-  if(dhikrView==='player'){ dhikrView='list'; renderDhikrList(); }
-  else if(dhikrView==='list'){ dhikrView='home'; renderDhikrHome(); }
-  else { goHome(); }
-}
-const originalOpenDuas=openDuas;
-openDuas=function(){ dhikrView='home'; showOnly('dhikrScreen'); renderDhikrHome(); };
-const originalOpenDhikrCategory=openDhikrCategory;
-openDhikrCategory=function(key){ dhikrView='list'; dhikrCategory=key; dhikrIndex=0; dhikrCount=0; renderDhikrList(); };
-const originalStartDhikr=startDhikr;
-startDhikr=function(index){ dhikrView='player'; dhikrIndex=index; dhikrCount=0; renderDhikrPlayer(); };
+function goHome(){ showOnly("homeScreen"); }
 
-/* ================= عداد إلكتروني متطور وفاتن ================= */
+// ================= العداد السريع =================
 let quickCount = 0;
 let quickDailyTotal = Number(localStorage.getItem('quickCounterDailyTotal') || 0);
 
@@ -1030,50 +435,357 @@ function openQuickCounter(){
   changeQuickDhikr();
   updateQuickCounterDisplay();
 }
-
 function changeQuickDhikr(){
-  const select = document.getElementById('quickDhikrSelect');
-  const badge = document.getElementById('currentDhikrBadge');
-  if(select && badge){
-    badge.textContent = select.value;
-  }
+  const s = document.getElementById('quickDhikrSelect');
+  const b = document.getElementById('currentDhikrBadge');
+  if(s && b) b.textContent = s.value;
 }
-
 function resetQuickCounter(){
   quickCount = 0;
   updateQuickCounterDisplay();
 }
-
 function updateQuickCounterDisplay(){
-  document.getElementById('quickNumber').textContent = quickCount.toLocaleString('ar-DZ');
-  document.getElementById('quickCounterDailyTotal').textContent = quickDailyTotal.toLocaleString('ar-DZ');
+  document.getElementById('quickNumber').textContent = quickCount;
+  document.getElementById('quickCounterDailyTotal').textContent = quickDailyTotal;
 }
-
 function tapQuickCounter(){
   quickCount++;
   quickDailyTotal++;
   localStorage.setItem('quickCounterDailyTotal', String(quickDailyTotal));
-  
-  const select = document.getElementById('quickDhikrSelect');
-  const dhikrName = select ? select.value : "عداد التسبيح الإلكتروني";
-  
-  addTasbeehToAchievements(1, dhikrName);
   updateQuickCounterDisplay();
+  addTasbeehToAchievements(1, document.getElementById('quickDhikrSelect').value);
   maybeVibrate();
 }
 
-/* ================= مسبحة رقمية محفوظة ================= */
-let digitalSession=0;
-function loadDigital(){ return Number(localStorage.getItem('digitalTasbeehTotal')||0); }
-function openDigitalTasbeeh(){ showOnly('digitalScreen'); digitalSession=0; document.getElementById('digitalSession').textContent='0'; document.getElementById('digitalTotal').textContent=loadDigital().toLocaleString('ar-DZ'); }
-function tapDigital(){ digitalSession++; document.getElementById('digitalSession').textContent=digitalSession; maybeVibrate(); }
-function resetDigitalSession(){ 
-  digitalSession=0; 
-  localStorage.setItem('digitalTasbeehTotal', '0'); 
-  document.getElementById('digitalSession').textContent='0'; 
-  document.getElementById('digitalTotal').textContent='0'; 
+// ================= المسبحة الرقمية =================
+let digitalSession = 0;
+function loadDigital(){ return Number(localStorage.getItem('digitalTasbeehTotal') || 0); }
+function openDigitalTasbeeh(){
+  showOnly('digitalScreen');
+  digitalSession = 0;
+  document.getElementById('digitalSession').textContent = '0';
+  document.getElementById('digitalTotal').textContent = loadDigital();
 }
-function saveDigitalSession(){ if(digitalSession>0){ addTasbeehToAchievements(digitalSession, "المسبحة الرقمية"); } const total=loadDigital()+digitalSession; localStorage.setItem('digitalTasbeehTotal',String(total)); digitalSession=0; document.getElementById('digitalSession').textContent='0'; document.getElementById('digitalTotal').textContent=total.toLocaleString('ar-DZ'); }
+function tapDigital(){
+  digitalSession++;
+  document.getElementById('digitalSession').textContent = digitalSession;
+  maybeVibrate();
+}
+function resetDigitalSession(){
+  digitalSession = 0;
+  localStorage.setItem('digitalTasbeehTotal', '0');
+  document.getElementById('digitalSession').textContent = '0';
+  document.getElementById('digitalTotal').textContent = '0';
+}
+function saveDigitalSession(){
+  if(digitalSession > 0) addTasbeehToAchievements(digitalSession, "المسبحة الرقمية");
+  const total = loadDigital() + digitalSession;
+  localStorage.setItem('digitalTasbeehTotal', String(total));
+  digitalSession = 0;
+  document.getElementById('digitalSession').textContent = '0';
+  document.getElementById('digitalTotal').textContent = total;
+}
 
-/* ================= مواقيت الصلاة ================= */
-const prayerDemo=[['الفجر','05:00'],['الشروق','06:25'],['الظهر','12:30'],['العصر','16:05'],
+// ================= تحدي التسبيح =================
+let challenge = null;
+let currentDay = 0;
+
+function loadChallenge(){
+  try{
+    const saved = localStorage.getItem("tasbeehChallenge");
+    challenge = saved ? JSON.parse(saved) : null;
+  }catch(e){ challenge = null; }
+}
+function saveChallenge(){
+  try{ localStorage.setItem("tasbeehChallenge", JSON.stringify(challenge)); }catch(e){}
+}
+function dailyTarget(day){
+  const base = Math.floor(challenge.total / challenge.days);
+  const extra = challenge.total % challenge.days;
+  return base + (day < extra ? 1 : 0);
+}
+function openChallengeSetup(){
+  loadChallenge();
+  if(challenge){ renderDays(); showOnly("daysScreen"); }
+  else { showOnly("setupScreen"); }
+}
+function createChallenge(){
+  const dhikr = document.getElementById("dhikrSelect").value;
+  const total = Math.max(1, parseInt(document.getElementById("totalInput").value) || 100);
+  const days = Math.max(1, Math.min(90, parseInt(document.getElementById("daysInput").value) || 10));
+  challenge = { dhikr, total, days, completed: Array(days).fill(0) };
+  saveChallenge();
+  renderDays();
+  showOnly("daysScreen");
+}
+function renderDays(){
+  if(!challenge) return;
+  const done = challenge.completed.reduce((a, b) => a + b, 0);
+  const percent = Math.min(100, Math.round((done / challenge.total) * 100));
+  document.getElementById("daysChallengeTitle").textContent = `${challenge.days} Day Challenge`;
+  document.getElementById("overallCount").textContent = `${done} / ${challenge.total}`;
+  document.getElementById("overallPercent").textContent = `${percent}%`;
+  document.getElementById("overallProgress").style.width = percent + "%";
+
+  const grid = document.getElementById("daysGrid");
+  grid.innerHTML = "";
+  for(let i = 0; i < challenge.days; i++){
+    const target = dailyTarget(i);
+    const doneToday = challenge.completed[i] || 0;
+    const unlocked = i === 0 || challenge.completed[i - 1] >= dailyTarget(i - 1);
+    const finished = doneToday >= target;
+    const card = document.createElement("div");
+    card.className = "day-card " + (finished ? "done" : unlocked ? "active" : "");
+    if(unlocked){
+      card.innerHTML = `<div class="day-num">يوم ${i+1}</div><div class="day-count">${doneToday}/${target}</div>`;
+      card.onclick = () => openDay(i);
+    } else {
+      card.innerHTML = `<div class="day-num">يوم ${i+1}</div><div class="lock">🔒</div>`;
+    }
+    grid.appendChild(card);
+  }
+}
+function openDay(day){
+  currentDay = day;
+  updateCounterScreen();
+  showOnly("counterScreen");
+}
+function updateCounterScreen(){
+  const target = dailyTarget(currentDay);
+  const done = challenge.completed[currentDay] || 0;
+  document.getElementById("counterDayTitle").textContent = `اليوم ${currentDay + 1}`;
+  document.getElementById("counterDhikr").textContent = challenge.dhikr;
+  document.getElementById("dailyCount").textContent = `${done} / ${target}`;
+  document.getElementById("dailyRemaining").textContent = `المتبقي: ${Math.max(0, target - done)}`;
+  document.getElementById("dailyProgress").style.width = Math.min(100, (done / target) * 100) + "%";
+  document.getElementById("counterNumber").textContent = done;
+  document.getElementById("completeMessage").style.display = done >= target ? "block" : "none";
+}
+function pressTasbeeh(){
+  if(!challenge) return;
+  const target = dailyTarget(currentDay);
+  if(challenge.completed[currentDay] >= target) return;
+  challenge.completed[currentDay]++;
+  addTasbeehToAchievements(1, challenge.dhikr);
+  saveChallenge();
+  updateCounterScreen();
+  maybeVibrate();
+  if(challenge.completed[currentDay] >= target){
+    setTimeout(() => { renderDays(); showOnly("daysScreen"); }, 600);
+  }
+}
+function backToDays(){ renderDays(); showOnly("daysScreen"); }
+function deleteChallenge(){
+  challenge = null;
+  localStorage.removeItem("tasbeehChallenge");
+  showOnly("setupScreen");
+}
+
+// ================= الإنجازات =================
+let achievements = [];
+function loadAchievements(){
+  try{
+    const saved = localStorage.getItem("tasbeehAchievements");
+    achievements = saved ? JSON.parse(saved) : [];
+  }catch(e){ achievements = []; }
+}
+function saveAchievements(){
+  try{ localStorage.setItem("tasbeehAchievements", JSON.stringify(achievements)); }catch(e){}
+}
+function totalAchievedCount(){
+  return achievements.reduce((sum, a) => sum + Number(a.count || 0), 0);
+}
+function addTasbeehToAchievements(count, name){
+  loadAchievements();
+  if(!achievements.length){
+    achievements.push({ dhikr: name || "تسبيح", count });
+  } else {
+    achievements[achievements.length - 1].count = (Number(achievements[achievements.length - 1].count) || 0) + count;
+  }
+  saveAchievements();
+}
+function levelTarget(l){ return l * 5000; }
+function currentLevel(){
+  const total = totalAchievedCount();
+  return Math.max(1, Math.floor(total / 5000) + 1);
+}
+function openAchievements(){
+  loadAchievements();
+  showOnly("achievementsScreen");
+  renderAchievements();
+}
+function renderAchievements(){
+  const grid = document.getElementById("levelsGrid");
+  if(!grid) return;
+  grid.innerHTML = "";
+  const lvl = currentLevel();
+  for(let i = 1; i <= 20; i++){
+    const unlocked = i <= lvl;
+    const card = document.createElement("div");
+    card.className = "level-card " + (unlocked ? "unlocked" : "locked");
+    card.innerHTML = `
+      <div class="level-stars">${unlocked ? "★★★" : "☆☆☆"}</div>
+      <div class="level-number">${i * 5}K</div>
+      <div class="level-footer">مستوى ${i}</div>
+      <div class="level-badge">${unlocked ? "🏅" : "🔒"}</div>
+    `;
+    if(unlocked) card.onclick = () => openLevel(i);
+    grid.appendChild(card);
+  }
+}
+function openLevel(l){
+  showOnly("levelScreen");
+  const target = levelTarget(l);
+  const total = totalAchievedCount();
+  document.getElementById("detailLevelCircle").textContent = l;
+  document.getElementById("detailCounts").textContent = `${total} / ${target}`;
+  document.getElementById("detailCountsBar").style.width = Math.min(100, (total / target) * 100) + "%";
+  document.getElementById("achievementHistory").textContent = `إجمالي تسبيحاتك المحفوظة: ${total}`;
+}
+
+// ================= الأدعية والأذكار =================
+const DHIKR_DATA = {
+  morning: {
+    title: 'أذكار الصباح', icon: '🌅',
+    items: [
+      { title: 'آية الكرسي', text: 'اللَّهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...', count: 1 },
+      { title: 'الإخلاص والمعوذتين', text: 'قُلْ هُوَ اللَّهُ أَحَدٌ... قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ... قُلْ أَعُوذُ بِرَبِّ النَّاسِ...', count: 3 },
+      { title: 'سيد الاستغفار', text: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ...', count: 1 }
+    ]
+  },
+  evening: {
+    title: 'أذكار المساء', icon: '🌙',
+    items: [
+      { title: 'آية الكرسي', text: 'اللَّهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...', count: 1 },
+      { title: 'أمسينا وأمسى الملك لله', text: 'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ...', count: 1 }
+    ]
+  }
+};
+
+let dhikrView = 'home', dhikrCat = 'morning', dhikrIdx = 0, dhikrTapCount = 0;
+
+function openDuas(){
+  dhikrView = 'home';
+  showOnly('dhikrScreen');
+  renderDhikrHome();
+}
+function renderDhikrHome(){
+  document.getElementById('dhikrPageTitle').textContent = 'الأدعية والأذكار';
+  document.getElementById('dhikrContent').innerHTML = `
+    <div class="dhikr-categories">
+      ${Object.entries(DHIKR_DATA).map(([k, v]) => `
+        <button type="button" class="dhikr-category" onclick="openDhikrCat('${k}')">
+          <div style="font-size:28px">${v.icon}</div>
+          <b>${v.title}</b>
+        </button>
+      `).join('')}
+    </div>
+  `;
+}
+function openDhikrCat(k){
+  dhikrView = 'list';
+  dhikrCat = k;
+  const d = DHIKR_DATA[k];
+  document.getElementById('dhikrPageTitle').textContent = d.title;
+  document.getElementById('dhikrContent').innerHTML = `
+    <div class="dhikr-list">
+      ${d.items.map((item, idx) => `
+        <div class="dhikr-item" onclick="startDhikr(${idx})">
+          <b>${item.title}</b>
+          <p style="font-size:12px;margin-top:4px">${item.text}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+function startDhikr(idx){
+  dhikrView = 'player';
+  dhikrIdx = idx;
+  dhikrTapCount = 0;
+  renderDhikrPlayer();
+}
+function renderDhikrPlayer(){
+  const item = DHIKR_DATA[dhikrCat].items[dhikrIdx];
+  document.getElementById('dhikrContent').innerHTML = `
+    <div class="dhikr-player">
+      <h3>${item.title}</h3>
+      <div class="dhikr-arabic">${item.text}</div>
+      <div style="font-weight:bold;margin-bottom:10px">الهدف: ${item.count}</div>
+      <div class="dhikr-tap" onclick="tapDhikrItem()">
+        <div class="tap-inner-circle">
+          <span style="font-size:40px;font-weight:900">${dhikrTapCount}</span>
+          <small>اضغط</small>
+        </div>
+      </div>
+    </div>
+  `;
+}
+function tapDhikrItem(){
+  const item = DHIKR_DATA[dhikrCat].items[dhikrIdx];
+  if(dhikrTapCount < item.count){
+    dhikrTapCount++;
+    maybeVibrate();
+    addTasbeehToAchievements(1, item.title);
+    renderDhikrPlayer();
+    if(dhikrTapCount >= item.count){
+      setTimeout(() => openDhikrCat(dhikrCat), 500);
+    }
+  }
+}
+function backFromDhikr(){
+  if(dhikrView === 'player') openDhikrCat(dhikrCat);
+  else if(dhikrView === 'list') openDuas();
+  else goHome();
+}
+
+// ================= القرآن والميزات والإعدادات =================
+const SURAHS = ['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الكهف','مريم','طه','يس','الملك','الإخلاص','الفلق','الناس'];
+function openQuran(){ showOnly('quranScreen'); renderQuran(); }
+function renderQuran(){
+  const q = (document.getElementById('quranSearch').value || '').trim();
+  const list = document.getElementById('surahList');
+  list.innerHTML = SURAHS.filter(s => !q || s.includes(q)).map((s, i) => `
+    <div class="surah-row" onclick="toggleSurah(${i})">
+      <b>${i+1}. سورة ${s}</b>
+      <small>${localStorage.getItem('surah_'+i) === '1' ? '✓ تمت القراءة' : 'لم تُقرأ'}</small>
+    </div>
+  `).join('');
+}
+function toggleSurah(i){
+  const k = 'surah_' + i;
+  localStorage.setItem(k, localStorage.getItem(k) === '1' ? '0' : '1');
+  renderQuran();
+}
+
+function openMoreFeatures(){ showOnly('moreScreen'); }
+function openSettings(){ showOnly('settingsScreen'); }
+function saveSettings(){
+  localStorage.setItem('vibration', document.getElementById('vibrationSetting').checked ? '1' : '0');
+}
+function toggleDarkMode(){
+  const on = document.getElementById('darkSetting').checked;
+  localStorage.setItem('darkMode', on ? '1' : '0');
+  document.body.classList.toggle('dark-mode', on);
+}
+function maybeVibrate(){
+  if(document.getElementById('vibrationSetting')?.checked && navigator.vibrate) navigator.vibrate(12);
+}
+function clearAppData(){
+  if(confirm('هل تريد مسح جميع البيانات؟')){ localStorage.clear(); location.reload(); }
+}
+
+// ================= بدء التشغيل وتسجيل Service Worker =================
+loadChallenge();
+loadAchievements();
+goHome();
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(r => console.log('Service Worker مسجل:', r.scope))
+      .catch(e => console.error('فشل التسجيل:', e));
+  });
+}
+</script>
+</body>
+</html>

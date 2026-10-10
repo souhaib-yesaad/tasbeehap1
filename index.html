@@ -2,8 +2,18 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>المسبحة الذاكرة برو - الإصدار البلاتيني الفاخر</title>
+
+<!-- إعدادات Progressive Web App (PWA) -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3b7ea1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="المسبحة الذاكرة">
+<link rel="apple-touch-icon" href="icon-192.png">
+
 <style>
 :root{
   --primary:#3b7ea1;
@@ -118,7 +128,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
 .detail-bar i{display:block;height:100%;width:0;background:#2c739d;border-radius:12px}
 .achievement-history{margin-top:22px;color:#527080;font-size:12px;text-align:center}
 
-
 /* ================= الأدعية والأذكار ================= */
 .dhikr-categories{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
 .dhikr-category{border:0;background:#fff;border-radius:18px;padding:16px 10px;box-shadow:var(--shadow);text-align:center;cursor:pointer;color:var(--text)}
@@ -156,7 +165,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
 .prayer-error{text-align:center;background:#fff;padding:20px;border-radius:18px;color:#b23b3b}
 .prayer-note{font-size:10px;line-height:1.7;color:#71808a;text-align:center;margin:12px 8px}
 
-
 /* ================= أشكال وأيقونات ثلاثية الأبعاد احترافية ================= */
 .grid-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
 .menu-item {
@@ -189,7 +197,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
 }
 .menu-icon-3d svg { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
 
-
 /* ================= تحسين جمالية الأزرار وعداد التسبيح ================= */
 .grid-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
 .menu-item {
@@ -217,7 +224,7 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
 }
 .menu-item span { font-size: 12px !important; font-weight: 700 !important; color: #2c3e50 !important; }
 
-/* تحسين زر المسبحة وحلقة التسبيح لتفاعلية وجمالية ممتازة */
+/* تحسين زر المسبحة وحلقة التسبيح */
 .tasbeeh-button {
   display: flex !important;
   justify-content: center !important;
@@ -283,7 +290,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   border-radius: 20px !important;
   border: 1px solid rgba(224,169,109,0.4) !important;
 }
-
 
 /* ================= واجهة العداد الإلكتروني الجذابة ================= */
 .electronic-counter-card {
@@ -433,7 +439,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   margin-top: 2px;
 }
 
-
 /* ================= تصميم متطور وعصري لقارئ الأذكار ================= */
 .dhikr-player {
   background: linear-gradient(145deg, #ffffff, #f0f5f9) !important;
@@ -526,7 +531,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   color: #94a3b8 !important;
   margin-top: -2px !important;
 }
-
 </style>
 </head>
 
@@ -540,12 +544,12 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
       <div class="avatar">S</div>
       <div class="greeting"><h4>السلام عليكم</h4><h3>المطور يسعد صهيب</h3></div>
     </div>
-      <div class="streak">🔥 Streak ١ Day</div>
+    <div class="streak">🔥 Streak ١ Day</div>
   </div>
 
   <div class="prayer-card" style="background: linear-gradient(135deg, #1b4965, #2b719b); color: #fff; padding: 20px; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 20px; text-align: center;">
     <div style="font-size: 13px; opacity: 0.9; margin-bottom: 6px; font-weight: bold; color: #ffd700;">✨ فضل الذكر والتسبيح ✨</div>
-    <div style="font-size: 16px; font-weight: 800; line-height: 1.6; margin-bottom: 8px;" id="dailyHadithText">«أَحَبُّ الكَلاَمِ إِلَى اللهِ أَرْبَعٌ: سُبْحَانَ اللهِ، وَالْحَمْدُ لِلَّهِ، وَلاَ إِلَهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ»</div>
+    <div style="font-size: 16px; font-weight: 800; line-height: 1.6; margin-bottom: 8px;" id="dailyHadithText">«أَحَبُّ الكَلاَمِ إِلَى اللهِ أَرْبَعٌ: سُبْحَانَ اللهِ، وَالْحَمْدُ لِلَّهِ، وَلاَ إِلَهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ»</div>
     <div style="font-size: 11px; opacity: 0.8; font-style: italic;">― رسول الله ﷺ (رواه مسلم)</div>
   </div>
 
@@ -660,7 +664,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   <button class="reset-btn" onclick="deleteChallenge()">إعادة إنشاء التحدي</button>
 </section>
 
-
 <!-- ================= شاشة الإنجازات ================= -->
 <section class="screen hidden" id="achievementsScreen">
   <div class="page-head">
@@ -735,7 +738,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   <div class="complete-msg" id="completeMessage">أحسنت، اكتمل تحدي اليوم. تم فتح اليوم التالي.</div>
 </section>
 
-
 <!-- ================= الأدعية والأذكار ================= -->
 <section class="screen hidden" id="dhikrScreen">
   <div class="page-head">
@@ -745,7 +747,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   </div>
   <div id="dhikrContent"></div>
 </section>
-
 
 <!-- ================= عداد التسبيح السريع الإلكتروني ================= -->
 <section class="screen hidden" id="quickCounterScreen">
@@ -783,7 +784,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
       </select>
     </div>
 
-    <!-- زر العداد الإلكتروني التفاعلي ثلاثي الأبعاد -->
     <div class="electronic-tap-area">
       <button class="electronic-tap-btn" onclick="tapQuickCounter()">
         <div class="btn-outer-ring">
@@ -844,7 +844,7 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
   </div>
 </section>
 
-<!-- الشريط السفلي جزء من التطبيق نفسه -->
+<!-- الشريط السفلي -->
 <div class="bottom-nav" id="bottomNav">
   <button class="nav-item" onclick="openMoreFeatures()">🗂️</button>
   <button class="nav-item" onclick="openAchievements()">🏆</button>
@@ -856,8 +856,6 @@ body{background:#e9eef2;color:var(--text);display:flex;justify-content:center;al
 <script>
 let challenge = null;
 let currentDay = 0;
-
-
 let achievements = [];
 let selectedLevel = 1;
 
@@ -877,10 +875,7 @@ function totalAchievedCount(){
   return achievements.reduce((sum,a)=>sum + Number(a.count||0),0);
 }
 
-/* أول المستويات كما في التصميم: 5K، 10K، 15K...،
-   ثم تستمر المستويات حتى يصل المستوى 100 إلى مليون تسبيحة. */
 function levelTarget(level){
-  // المستوى 1 = 5,000 ... المستوى 100 = 1,000,000.
   if(level<=100) return Math.round(5000 + (level-1)*(1000000-5000)/(99));
   return 1000000;
 }
@@ -920,8 +915,6 @@ function renderAchievements(){
   const lvl=currentLevel();
   const total=totalAchievedCount();
 
-  // Always show all 100 levels. The first/current level is highlighted,
-  // while future levels remain locked, matching the requested design.
   for(let i=1;i<=100;i++){
     const unlocked = i<=lvl;
     const current = i===lvl;
@@ -939,7 +932,6 @@ function renderAchievements(){
       <div class="level-badge">${unlocked?levelBadge(i):"🔒"}</div>
     `;
 
-    // Allow opening only reached/current levels.
     if(unlocked) card.onclick=()=>openLevel(i);
     grid.appendChild(card);
   }
@@ -986,7 +978,6 @@ function openLevel(level){
   showOnly("levelScreen");
 }
 
-
 function addTasbeehToAchievements(count, dhikrName, challengeDays){
   loadAchievements();
   if(achievements.length === 0){
@@ -997,7 +988,6 @@ function addTasbeehToAchievements(count, dhikrName, challengeDays){
       completedAt: new Date().toISOString()
     });
   } else {
-    // Add to latest session or total
     achievements[achievements.length - 1].count = (Number(achievements[achievements.length - 1].count) || 0) + count;
   }
   saveAchievements();
@@ -1016,7 +1006,6 @@ function recordCompletedChallenge(){
   });
   saveAchievements();
 }
-
 
 /* ================= تنقل داخلي ثابت ================= */
 let dhikrView='home';
@@ -1086,473 +1075,5 @@ function resetDigitalSession(){
 }
 function saveDigitalSession(){ if(digitalSession>0){ addTasbeehToAchievements(digitalSession, "المسبحة الرقمية"); } const total=loadDigital()+digitalSession; localStorage.setItem('digitalTasbeehTotal',String(total)); digitalSession=0; document.getElementById('digitalSession').textContent='0'; document.getElementById('digitalTotal').textContent=total.toLocaleString('ar-DZ'); }
 
-/* ================= مواقيت الصلاة: بيانات أولية قابلة للتطوير ================= */
-const prayerDemo=[['الفجر','05:00'],['الشروق','06:25'],['الظهر','12:30'],['العصر','16:05'],['المغرب','18:35'],['العشاء','20:00']];
-function openPrayerTimes(){ showOnly('prayerScreen'); const city=localStorage.getItem('prayerCity')||'سطيف'; document.getElementById('cityInput').value=city; renderPrayerTimes(); }
-function saveCity(){ localStorage.setItem('prayerCity',document.getElementById('cityInput').value); }
-function renderPrayerTimes(){ document.getElementById('prayerList').innerHTML=prayerDemo.map(x=>`<div class="prayer-row"><b>${x[0]}</b><span>${x[1]}</span></div>`).join(''); }
-
-/* ================= المزيد من الميزات ================= */
-function openMoreFeatures(){ showOnly('moreScreen'); }
-
-/* ================= القرآن: قائمة السور + تتبع ختمة ================= */
-const SURAHS=['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص','الفلق','الناس'];
-function openQuran(){ showOnly('quranScreen'); renderQuran(); }
-function renderQuran(){ const q=(document.getElementById('quranSearch').value||'').trim(); const done=Number(localStorage.getItem('quranSurahsDone')||0); const pct=Math.round(done/114*100); document.getElementById('quranProgressText').textContent=pct+'%'; document.getElementById('quranProgressBar').style.width=pct+'%'; document.getElementById('surahList').innerHTML=SURAHS.map((n,i)=>({n,i})).filter(x=>!q||x.n.includes(q)).map(x=>`<button class="surah-row" onclick="toggleSurah(${x.i})"><b>${x.i+1}. ${x.n}</b><small>${localStorage.getItem('surah_'+x.i)==='1'?'✓ تمت':'لم تُقرأ'}</small></button>`).join(''); }
-function toggleSurah(i){ const key='surah_'+i; const was=localStorage.getItem(key)==='1'; localStorage.setItem(key,was?'0':'1'); let done=0; for(let j=0;j<114;j++) if(localStorage.getItem('surah_'+j)==='1') done++; localStorage.setItem('quranSurahsDone',String(done)); renderQuran(); }
-
-/* ================= الإعدادات ================= */
-function loadSettings(){ document.getElementById('vibrationSetting').checked=localStorage.getItem('vibration')!=='0'; document.getElementById('autoSaveSetting').checked=localStorage.getItem('autoSave')!=='0'; document.getElementById('darkSetting').checked=localStorage.getItem('darkMode')==='1'; document.body.classList.toggle('dark-mode',document.getElementById('darkSetting').checked); }
-function openSettings(){ showOnly('settingsScreen'); loadSettings(); }
-function saveSettings(){ localStorage.setItem('vibration',document.getElementById('vibrationSetting').checked?'1':'0'); localStorage.setItem('autoSave',document.getElementById('autoSaveSetting').checked?'1':'0'); }
-function toggleDarkMode(){ const on=document.getElementById('darkSetting').checked; localStorage.setItem('darkMode',on?'1':'0'); document.body.classList.toggle('dark-mode',on); saveSettings(); }
-function maybeVibrate(){ if(localStorage.getItem('vibration')!=='0' && navigator.vibrate) navigator.vibrate(12); }
-function clearAppData(){ if(confirm('سيتم حذف تقدم التحديات والإنجازات والمسبحة والقرآن. هل تريد المتابعة؟')){ localStorage.clear(); location.reload(); } }
-loadSettings();
-
-
-/* ================= الوقت ومواقيت الصلاة الحقيقية ================= */
-let prayerData = null;
-let prayerClockTimer = null;
-
-const prayerNames = {
-  Fajr:"الفجر",
-  Sunrise:"الشروق",
-  Dhuhr:"الظهر",
-  Asr:"العصر",
-  Maghrib:"المغرب",
-  Isha:"العشاء"
-};
-
-function openPrayerTimes(){
-  showOnly("prayerScreen");
-  startLiveClock();
-  loadPrayerTimes(false);
-}
-
-function startLiveClock(){
-  if(prayerClockTimer) clearInterval(prayerClockTimer);
-  updateLiveClock();
-  prayerClockTimer=setInterval(updateLiveClock,1000);
-}
-
-function updateLiveClock(){
-  const now=new Date();
-  const clock=document.getElementById("liveClock");
-  const date=document.getElementById("liveDate");
-  if(!clock || !date) return;
-
-  clock.textContent=now.toLocaleTimeString("ar-DZ",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
-  date.textContent=now.toLocaleDateString("ar-DZ",{
-    weekday:"long",year:"numeric",month:"long",day:"numeric"
-  });
-}
-
-function prayerApiDate(){
-  const n=new Date();
-  return String(n.getDate()).padStart(2,"0")+"-"+
-         String(n.getMonth()+1).padStart(2,"0")+"-"+
-         n.getFullYear();
-}
-
-async function loadPrayerTimes(force){
-  const list=document.getElementById("prayerList");
-  if(!list) return;
-
-  list.innerHTML='<div class="prayer-loading">جاري جلب مواقيت الصلاة الحقيقية...</div>';
-
-  // الجزائر: نستخدم المدينة كإعداد أولي بدل طلب الموقع الدقيق.
-  // يمكن لاحقًا إضافة اختيار الولاية/المدينة.
-  const city=localStorage.getItem("prayerCity") || "Algiers";
-  const country="Algeria";
-  const date=prayerApiDate();
-
-  const cacheKey="prayerTimes_"+city+"_"+date;
-  if(!force){
-    try{
-      const cached=JSON.parse(localStorage.getItem(cacheKey)||"null");
-      if(cached && cached.data && cached.savedAt && Date.now()-cached.savedAt<12*60*60*1000){
-        prayerData=cached.data;
-        renderPrayerTimes();
-        return;
-      }
-    }catch(e){}
-  }
-
-  try{
-    // AlAdhan supports an Algeria calculation method. We use the API's
-    // Algeria method id returned by /v1/methods.
-    const methodsRes=await fetch("https://api.aladhan.com/v1/methods");
-    const methodsJson=await methodsRes.json();
-    const methods=methodsJson.data||[];
-    const algeria=methods.find(m=>String(m.name||"").toLowerCase().includes("algeria"));
-    const methodId=algeria ? algeria.id : 3;
-
-    const url="https://api.aladhan.com/v1/timingsByCity/"+date+
-      "?city="+encodeURIComponent(city)+
-      "&country="+encodeURIComponent(country)+
-      "&method="+encodeURIComponent(methodId);
-
-    const response=await fetch(url);
-    if(!response.ok) throw new Error("HTTP "+response.status);
-    const json=await response.json();
-    if(!json.data || !json.data.timings) throw new Error("Invalid API response");
-
-    prayerData=json.data;
-    localStorage.setItem(cacheKey,JSON.stringify({data:prayerData,savedAt:Date.now()}));
-    renderPrayerTimes();
-  }catch(error){
-    console.error("Prayer times error:",error);
-    list.innerHTML='<div class="prayer-error">تعذر جلب مواقيت الصلاة الآن.<br>تحقق من اتصال الإنترنت ثم اضغط «تحديث».</div>';
-  }
-}
-
-function timeToMinutes(t){
-  const m=String(t||"").match(/(\d{1,2}):(\d{2})/);
-  return m ? Number(m[1])*60+Number(m[2]) : 9999;
-}
-
-function renderPrayerTimes(){
-  const list=document.getElementById("prayerList");
-  const location=document.getElementById("prayerLocationText");
-  if(!list || !prayerData) return;
-
-  const times=prayerData.timings||{};
-  const now=new Date();
-  const current=now.getHours()*60+now.getMinutes();
-
-  const order=["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"];
-  let nextIndex=order.findIndex(k=>timeToMinutes(times[k])>current);
-  if(nextIndex<0) nextIndex=0;
-
-  location.textContent=(localStorage.getItem("prayerCity")||"Algiers")+", الجزائر";
-
-  list.innerHTML=order.map((key,index)=>{
-    const next=index===nextIndex;
-    const clean=String(times[key]||"--:--").replace(/\s*\(.+?\)/,"");
-    return `<div class="prayer-row ${next?"next":""}">
-      <div class="name">${prayerNames[key]}${next?'<span class="next-tag">الصلاة القادمة</span>':""}</div>
-      <div class="time">${clean}</div>
-    </div>`;
-  }).join("");
-}
-
-function loadChallenge(){
-  try{
-    const saved = localStorage.getItem("tasbeehChallenge");
-    if(saved) challenge = JSON.parse(saved);
-  }catch(e){ challenge=null; }
-
-  if(challenge){
-    if(!Array.isArray(challenge.completed) || challenge.completed.length !== challenge.days){
-      challenge.completed = Array.from({length:challenge.days},(_,i)=>Number(challenge.completed?.[i])||0);
-    }
-  }
-}
-
-function saveChallenge(){
-  try{ localStorage.setItem("tasbeehChallenge",JSON.stringify(challenge)); }catch(e){}
-}
-
-function dailyTarget(day){
-  const base = Math.floor(challenge.total / challenge.days);
-  const extra = challenge.total % challenge.days;
-  return base + (day < extra ? 1 : 0);
-}
-
-function showOnly(id){
-  ["homeScreen","setupScreen","daysScreen","counterScreen","achievementsScreen","levelScreen","dhikrScreen","quickCounterScreen","digitalScreen","prayerScreen","moreScreen","quranScreen","settingsScreen"].forEach(x=>{
-    const el=document.getElementById(x);
-    if(el) el.classList.toggle("hidden",x!==id);
-  });
-  const nav=document.getElementById("bottomNav");
-  if(nav) nav.style.display = id==="homeScreen" ? "flex" : "none";
-}
-
-function goHome(){ showOnly("homeScreen"); }
-
-function openChallengeSetup(){
-  loadChallenge();
-
-  // إذا كان هناك تحدٍ قائم، نعرضه بدل إنشاء تحدٍ جديد.
-  if(challenge){
-    renderDays();
-    showOnly("daysScreen");
-    return;
-  }
-
-  showOnly("setupScreen");
-}
-
-function createChallenge(){
-  const dhikr=document.getElementById("dhikrSelect").value;
-  const total=Math.max(1,parseInt(document.getElementById("totalInput").value)||1);
-  const days=Math.max(1,Math.min(90,parseInt(document.getElementById("daysInput").value)||1));
-
-  challenge={
-    dhikr,
-    total,
-    days,
-    completed:Array(days).fill(0),
-    achievementRecorded:false
-  };
-
-  saveChallenge();
-  renderDays();
-  showOnly("daysScreen");
-}
-
-function renderDays(){
-  if(!challenge) return;
-
-  const done=challenge.completed.reduce((a,b)=>a+b,0);
-  const percent=Math.min(100,(done/challenge.total)*100);
-
-  document.getElementById("daysChallengeTitle").textContent=`${challenge.days} Day Challenge`;
-  document.getElementById("daysChallengeCount").textContent=
-    `عدد أيام التحدي: ${challenge.days} ${challenge.days===1?"يوم":"أيام"}`;
-  document.getElementById("overallCount").textContent=`${done} / ${challenge.total}`;
-  document.getElementById("overallPercent").textContent=`${Math.round(percent)}%`;
-  document.getElementById("overallProgress").style.width=percent+"%";
-
-  const grid=document.getElementById("daysGrid");
-  grid.innerHTML="";
-
-  for(let i=0;i<challenge.days;i++){
-    const target=dailyTarget(i);
-    const doneToday=challenge.completed[i]||0;
-    const unlocked=i===0 || challenge.completed[i-1]>=dailyTarget(i-1);
-    const finished=doneToday>=target;
-
-    const card=document.createElement("div");
-    card.className="day-card "+(finished?"done":unlocked?"active":"");
-
-    if(unlocked){
-      card.innerHTML=`
-        <div class="day-num">اليوم ${i+1}</div>
-        <div class="day-count">${doneToday} / ${target}</div>
-        <div class="day-progress"><i style="width:${Math.min(100,doneToday/target*100)}%"></i></div>
-      `;
-      card.onclick=()=>openDay(i);
-    }else{
-      card.innerHTML=`
-        <div class="day-num">اليوم ${i+1}</div>
-        <div class="lock">🔒</div>
-      `;
-    }
-
-    grid.appendChild(card);
-  }
-}
-
-function openDay(day){
-  if(!challenge) return;
-  if(day>0 && challenge.completed[day-1] < dailyTarget(day-1)) return;
-
-  currentDay=day;
-  updateCounterScreen();
-  showOnly("counterScreen");
-}
-
-function updateCounterScreen(){
-  const target=dailyTarget(currentDay);
-  const done=challenge.completed[currentDay]||0;
-  const percent=Math.min(100,done/target*100);
-
-  document.getElementById("counterDayTitle").textContent=`Day ${currentDay+1}`;
-  document.getElementById("counterChallengeTitle").textContent=`${challenge.days} Day Challenge`;
-  document.getElementById("counterChallengeDays").textContent=
-    `عدد أيام التحدي: ${challenge.days} ${challenge.days===1?"يوم":"أيام"}`;
-  document.getElementById("counterDhikr").textContent=challenge.dhikr;
-
-  document.getElementById("dailyCount").textContent=`${done} / ${target}`;
-  document.getElementById("dailyRemaining").textContent=`المتبقي: ${Math.max(0,target-done)}`;
-  document.getElementById("dailyProgress").style.width=percent+"%";
-  document.getElementById("counterNumber").textContent=done;
-
-  document.getElementById("completeMessage").style.display=done>=target?"block":"none";
-}
-
-function pressTasbeeh(){
-  if(!challenge) return;
-
-  const target=dailyTarget(currentDay);
-  if(challenge.completed[currentDay]>=target) return;
-
-  challenge.completed[currentDay]++;
-  addTasbeehToAchievements(1, challenge.dhikr, challenge.days);
-  saveChallenge();
-  updateCounterScreen();
-  maybeVibrate();
-
-  if(challenge.completed[currentDay]>=target){
-    const allDone = challenge.completed.every((value,index)=>value>=dailyTarget(index));
-    if(allDone && !challenge.achievementRecorded){
-      challenge.achievementRecorded=true;
-      saveChallenge();
-    }
-    setTimeout(()=>{
-      renderDays();
-      showOnly("daysScreen");
-    },700);
-  }
-}
-
-function backToDays(){
-  renderDays();
-  showOnly("daysScreen");
-}
-
-function deleteChallenge(){
-  challenge=null;
-  currentDay=0;
-  try{localStorage.removeItem("tasbeehChallenge");}catch(e){}
-  showOnly("setupScreen");
-}
-
-loadChallenge();
-loadAchievements();
-showOnly("homeScreen");
-
-
-/* ================= منظم الأدعية والأذكار ================= */
-const DHIKR_DATA = {
-  hisn: {
-    title:'حصن المسلم', icon:'🛡️', desc:'أذكار عامة ومأثورة',
-    items:[
-      {title:'أذكار الاستيقاظ من النوم', text:'الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا، وَإِلَيْهِ النُّشُورُ.', count:1, source:'حصن المسلم: أذكار الاستيقاظ'},
-      {title:'سيد الاستغفار', text:'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.', count:1, source:'صحيح البخاري'},
-      {title:'الصلاة على النبي ﷺ', text:'اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ.', count:10, source:'حصن المسلم'},
-      {title:'دعاء الكرب', text:'لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ.', count:1, source:'صحيح البخاري ومسلم'},
-      {title:'دعاء دخول المسجد', text:'اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ.', count:1, source:'صحيح مسلم'}
-    ]
-  },
-  morning_specific: {
-    title:'أذكار الصباح', icon:'🌅', desc:'أذكار الصباح كاملة ومستقلة',
-    items:[
-      {title:'آية الكرسي', text:'اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.', count:1, source:'سورة البقرة 255 — أذكار الصباح'},
-      {title:'سورة الإخلاص والمعوذتين', text:'قُلْ هُوَ اللَّهُ أَحَدٌ... ۝ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ... ۝ قُلْ أَعُوذُ بِرَبِّ النَّاسِ...', count:3, source:'حصن المسلم (3 مرات)'},
-      {title:'أصبحنا وأصبح الملك لله', text:'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ.', count:1, source:'صحيح مسلم'},
-      {title:'اللهم بك أصبحنا', text:'اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ.', count:1, source:'سنن الترمذي'},
-      {title:'سيد الاستغفار', text:'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلقتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.', count:1, source:'صحيح البخاري'},
-      {title:'اللهم عافني في بدني', text:'اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إِلَهَ إِلَّا أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ، وَالْفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لَا إِلَهَ إِلَّا أَنْتَ.', count:3, source:'سنن أبي داود (3 مرات)'},
-      {title:'حسبي الله', text:'حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ.', count:7, source:'سنن أبي داود (7 مرات)'},
-      {title:'بسم الله الذي لا يضر مع اسمه شيء', text:'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيعُ الْعَلِيمُ.', count:3, source:'سنن الترمذي (3 مرات)'},
-      {title:'رضيت بالله رباً', text:'رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا.', count:3, source:'سنن أبي داود (3 مرات)'},
-      {title:'يا حي يا قيوم', text:'يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.', count:1, source:'المستدرك للحاكم'},
-      {title:'سبحان الله وبحمده', text:'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ.', count:3, source:'صحيح مسلم (3 مرات)'},
-      {title:'الصلاة على النبي ﷺ', text:'اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ.', count:10, source:'مجمع الزوائد (10 مرات)'}
-    ]
-  },
-  evening_specific: {
-    title:'أذكار المساء', icon:'🌙', desc:'أذكار المساء كاملة ومستقلة',
-    items:[
-      {title:'آية الكرسي', text:'اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.', count:1, source:'سورة البقرة 255 — أذكار المساء'},
-      {title:'سورة الإخلاص والمعوذتين', text:'قُلْ هُوَ اللَّهُ أَحَدٌ... ۝ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ... ۝ قُلْ أَعُوذُ بِرَبِّ النَّاسِ...', count:3, source:'حصن المسلم (3 مرات)'},
-      {title:'أمسينا وأمسى الملك لله', text:'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا.', count:1, source:'صحيح مسلم'},
-      {title:'اللهم بك أمسينا', text:'اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ.', count:1, source:'سنن الترمذي'},
-      {title:'سيد الاستغفار', text:'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.', count:1, source:'صحيح البخاري'},
-      {title:'اللهم عافني في بدني', text:'اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إِلَهَ إِلَّا أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ، وَالْفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، لَا إِلَهَ إِلَّا أَنْتَ.', count:3, source:'سنن أبي داود (3 مرات)'},
-      {title:'حسبي الله', text:'حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ.', count:7, source:'سنن أبي داود (7 مرات)'},
-      {title:'بسم الله الذي لا يضر مع اسمه شيء', text:'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيعُ الْعَلِيمُ.', count:3, source:'سنن الترمذي (3 مرات)'},
-      {title:'أعوذ بكلمات الله التامات', text:'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ.', count:3, source:'صحيح مسلم (3 مرات)'},
-      {title:'رضيت بالله رباً', text:'رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا.', count:3, source:'سنن أبي داود (3 مرات)'},
-      {title:'الصلاة على النبي ﷺ', text:'اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ.', count:10, source:'مجمع الزوائد (10 مرات)'}
-    ]
-  },
-  rizq:{title:'أدعية الرزق',icon:'💰',desc:'أدعية ثابتة للرزق والكفاية',items:[
-    {title:'رزق طيب وعمل متقبل',text:'اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا.',count:1,source:'حصن المسلم 95'},
-    {title:'دعاء موسى عليه السلام',text:'رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ.',count:1,source:'القرآن الكريم — القصص 24'},
-    {title:'دعاء الكفاية',text:'اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ.',count:1,source:'سنن الترمذي'}
-  ]},
-  healing:{title:'أدعية الشفاء',icon:'🌿',desc:'أدعية الشفاء المأثورة',items:[
-    {title:'شفاء لا يغادر سقماً',text:'اللَّهُمَّ رَبَّ النَّاسِ، أَذْهِبِ الْبَاسَ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا.',count:1,source:'صحيح البخاري وصحيح مسلم'},
-    {title:'أسأل الله العظيم',text:'أَسْأَلُ اللَّهَ الْعَظِيمَ، رَبَّ الْعَرْشِ الْعَظِيمِ، أَنْ يَشْفِيَكَ.',count:7,source:'سنن أبي داود والترمذي'}
-  ]},
-  ruqyah:{title:'الرقية الشرعية',icon:'🕊️',desc:'رقية بالقرآن والأذكار الثابتة',items:[
-    {title:'سورة الفاتحة',text:'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ.',count:7,source:'صحيح البخاري'},
-    {title:'آية الكرسي',text:'اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ... وَهُوَ الْعَلِيُّ الْعَظِيمُ.',count:1,source:'البقرة 255'}
-  ]},
-  sleep:{title:'أذكار النوم',icon:'🌙',desc:'أذكار قبل النوم',items:[
-    {title:'باسمك اللهم أموت وأحيا',text:'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا.',count:1,source:'صحيح البخاري'},
-    {title:'التسبيح والتحميد والتكبير',text:'سُبْحَانَ اللَّهِ ٣٣، وَالْحَمْدُ لِلَّهِ ٣٣، وَاللَّهُ أَكْبَرُ ٣٤.',count:1,source:'صحيح البخاري وصحيح مسلم'}
-  ]},
-  general:{title:'أدعية متنوعة',icon:'🤲',desc:'دعاء الاستغفار والطلب',items:[
-    {title:'ربنا آتنا في الدنيا حسنة',text:'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً، وَفِي الْآخِرَةِ حَسَنَةً، وَقِنَا عَذَابَ النَّارِ.',count:1,source:'القرآن الكريم — البقرة 201'},
-    {title:'يا حي يا قيوم',text:'يَا حَيُّ يَا قَيُّومُ، بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.',count:1,source:'سنن الترمذي'}
-  ]}
-};
-
-let dhikrCategory='hisn', dhikrIndex=0, dhikrCount=0;
-function openDuas(){
-  showOnly('dhikrScreen');
-  renderDhikrHome();
-}
-function renderDhikrHome(){
-  document.getElementById('dhikrPageTitle').textContent='الأدعية والأذكار';
-  const c=document.getElementById('dhikrContent');
-  c.innerHTML=`<div class="dhikr-categories">${Object.entries(DHIKR_DATA).map(([key,d])=>`<button class="dhikr-category" onclick="openDhikrCategory('${key}')"><div class="cat-icon">${d.icon}</div><b>${d.title}</b><small>${d.desc} • ${d.items.length} أذكار</small></button>`).join('')}</div>`;
-}
-function openDhikrCategory(key){
-  dhikrCategory=key; dhikrIndex=0; dhikrCount=0;
-  renderDhikrList();
-}
-function renderDhikrList(){
-  const d=DHIKR_DATA[dhikrCategory];
-  document.getElementById('dhikrPageTitle').textContent=d.title;
-  const c=document.getElementById('dhikrContent');
-  c.innerHTML=`<div class="dhikr-list">${d.items.map((x,i)=>`<button class="dhikr-item" onclick="startDhikr(${i})"><h4>${i+1}. ${x.title}</h4><p>${x.text}</p><span class="repeat">التكرار: ${x.count}</span></button>`).join('')}</div>`;
-}
-function startDhikr(index){
-  dhikrIndex=index; dhikrCount=0; renderDhikrPlayer();
-}
-function renderDhikrPlayer(){
-  const d=DHIKR_DATA[dhikrCategory], x=d.items[dhikrIndex];
-  document.getElementById('dhikrPageTitle').textContent=d.title;
-  document.getElementById('dhikrContent').innerHTML=`<div class="dhikr-player">
-    <div class="player-category">${d.title} • الذكر ${dhikrIndex+1} من ${d.items.length}</div>
-    <div class="player-title">${x.title}</div>
-    <div class="dhikr-arabic">${x.text}</div>
-    <div class="repeat-box"><span>العدد المطلوب</span><strong>${x.count}</strong></div>
-    <div class="dhikr-tap" onclick="tapDhikr()">
-      <div class="tap-inner-circle">
-        <div class="tap-number">${dhikrCount}</div>
-        <div class="tap-label">اضغط للذكر</div>
-      </div>
-    </div>
-    <div class="source-note">المصدر: ${x.source}</div>
-    <button class="dhikr-secondary" onclick="renderDhikrList()">قائمة أذكار ${d.title}</button>
-  </div>`;
-}
-function tapDhikr(){
-  const x=DHIKR_DATA[dhikrCategory].items[dhikrIndex];
-  if(dhikrCount>=x.count) return;
-  dhikrCount++;
-  maybeVibrate();
-  addTasbeehToAchievements(1, x.title);
-  
-  if(dhikrCount>=x.count){
-    renderDhikrPlayer();
-    setTimeout(()=>{
-      if(dhikrIndex < DHIKR_DATA[dhikrCategory].items.length-1){ 
-        dhikrIndex++; 
-        dhikrCount=0; 
-        renderDhikrPlayer(); 
-      } else { 
-        renderDhikrComplete(); 
-      }
-    }, 400);
-  } else {
-    renderDhikrPlayer();
-  }
-}
-function renderDhikrComplete(){
-  const d=DHIKR_DATA[dhikrCategory];
-  document.getElementById('dhikrPageTitle').textContent=d.title;
-  document.getElementById('dhikrContent').innerHTML=`<div class="done-dua"><h3>أحسنت، أتممت ${d.title}</h3><p>أكملت جميع الأذكار في هذه المجموعة.</p><button class="dhikr-next" onclick="renderDhikrHome()">العودة إلى الأقسام</button><button class="dhikr-secondary" onclick="renderDhikrList()">إعادة المجموعة</button></div>`;
-}
-
-</script>
-</div>
-</body>
-</html>
+/* ================= مواقيت الصلاة ================= */
+const prayerDemo=[['الفجر','05:00'],['الشروق','06:25'],['الظهر','12:30'],['العصر','16:05'],
